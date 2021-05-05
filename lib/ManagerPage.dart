@@ -11,14 +11,14 @@ class _ManagerPageState extends State<ManagerPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: new AppBar(
+      appBar: AppBar(
         elevation: 0,
         centerTitle: true,
         backgroundColor: Colors.white10,
-        title: new Text("Manager page"),
+        title: Text("Manager", style: TextStyle(color: Colors.black))
       ),
-      body: new Center(
-        child: new Text("It's manager page"),
+      body: Center(
+        child: Text("It's manager page"),
       ),
     );
   }

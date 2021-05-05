@@ -61,23 +61,23 @@ class _RootPage extends State<RootPage> {
         type: BottomNavigationBarType.fixed,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.article_outlined, size: 29, color: Color.fromRGBO(71, 71, 75, 1.0)),
-            activeIcon: Icon(Icons.article, size: 29, color: Color.fromRGBO(35, 38, 43, 1.0)),
+            icon: Icon(Icons.article_outlined, size: 29, color: Colors.black87),
+            activeIcon: Icon(Icons.article, size: 29, color: Colors.black),
             label: 'Management',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.assessment_outlined, size: 29, color: Color.fromRGBO(71, 71, 75, 1.0)),
-            activeIcon: Icon(Icons.assessment, size: 29, color: Color.fromRGBO(35, 38, 43, 1.0)),
+            icon: Icon(Icons.assessment_outlined, size: 29, color: Colors.black87),
+            activeIcon: Icon(Icons.assessment, size: 29, color: Colors.black),
             label: 'Statistics',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.play_circle_outline_rounded, size: 29, color: Color.fromRGBO(71, 71, 75, 1.0)),
-            activeIcon: Icon(Icons.play_circle_fill_rounded, size: 29, color: Color.fromRGBO(35, 38, 43, 1.0)),
+            icon: Icon(Icons.play_circle_outline_rounded, size: 29, color: Colors.black87),
+            activeIcon: Icon(Icons.play_circle_fill_rounded, size: 29, color: Colors.black),
             label: 'Stopwatch',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.account_box_outlined, size: 29, color: Color.fromRGBO(71, 71, 75, 1.0)),
-            activeIcon: Icon(Icons.account_box, size: 29, color: Color.fromRGBO(35, 38, 43, 1.0)),
+            icon: Icon(Icons.account_box_outlined, size: 29, color: Colors.black87),
+            activeIcon: Icon(Icons.account_box, size: 29, color: Colors.black),
             label: 'Profile',
           ),
         ],

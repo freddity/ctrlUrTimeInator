@@ -11,16 +11,15 @@ class _StatisticsPageState extends State<StatisticsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: new AppBar(
+      appBar: AppBar(
         elevation: 0,
         centerTitle: true,
         backgroundColor: Colors.white10,
-        title: new Text("Statistics page"),
+        title: Text("Statistics", style: TextStyle(color: Colors.black)),
       ),
-      body: new Center(
-        child: new Text("It's statistics page"),
+      body: Center(
+        child: Text("It's statistics page"),
       ),
     );
   }
-
 }

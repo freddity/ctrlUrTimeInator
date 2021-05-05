@@ -11,16 +11,15 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: new AppBar(
+      appBar: AppBar(
         elevation: 0,
         centerTitle: true,
         backgroundColor: Colors.white10,
-        title: new Text("Profile page"),
+        title: Text("Profile", style: TextStyle(color: Colors.black)),
       ),
-      body: new Center(
-        child: new Text("It's profile page"),
+      body: Center(
+        child: Text("It's profile page"),
       ),
     );
   }
-
 }
