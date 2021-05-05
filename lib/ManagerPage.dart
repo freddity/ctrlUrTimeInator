@@ -12,6 +12,9 @@ class _ManagerPageState extends State<ManagerPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: new AppBar(
+        elevation: 0,
+        centerTitle: true,
+        backgroundColor: Colors.white10,
         title: new Text("Manager page"),
       ),
       body: new Center(
@@ -19,5 +22,4 @@ class _ManagerPageState extends State<ManagerPage> {
       ),
     );
   }
-
 }

@@ -12,6 +12,9 @@ class _StatisticsPageState extends State<StatisticsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: new AppBar(
+        elevation: 0,
+        centerTitle: true,
+        backgroundColor: Colors.white10,
         title: new Text("Statistics page"),
       ),
       body: new Center(

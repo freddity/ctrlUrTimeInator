@@ -12,6 +12,9 @@ class _StopwatchPageState extends State<StopwatchPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: new AppBar(
+        elevation: 0,
+        centerTitle: true,
+        backgroundColor: Colors.white10,
         title: new Text("Stopwatch page"),
       ),
       body: new Center(
