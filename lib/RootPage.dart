@@ -39,7 +39,7 @@ class _Page {
   final StatefulWidget widget;
 }
 
-class _RootPage extends State<RootPage> with TickerProviderStateMixin {
+class _RootPage extends State<RootPage> with SingleTickerProviderStateMixin {
 
   int _currentIndex = 0;
 
@@ -87,7 +87,7 @@ class _RootPage extends State<RootPage> with TickerProviderStateMixin {
               ),
             );
           }
-        ),
+        ).toList(),
       ),
       bottomNavigationBar: BottomNavigationBar(
         showSelectedLabels: false,
