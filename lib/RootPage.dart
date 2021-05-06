@@ -46,6 +46,7 @@ class _RootPage extends State<RootPage> with SingleTickerProviderStateMixin {
   void _onItemTapped(int index) {
     setState(() {
       _currentIndex = index;
+      _controller.animateTo(index);
     });
   }
 
@@ -75,6 +76,7 @@ class _RootPage extends State<RootPage> with SingleTickerProviderStateMixin {
     return Scaffold(
 
       body: TabBarView(
+        physics: NeverScrollableScrollPhysics(),
         controller: _controller,
         children: _allPages.map<Widget>((_Page page) {
             return SafeArea(
