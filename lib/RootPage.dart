@@ -14,12 +14,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: "Is's title man",
+      title: "ctrlUrTimeInator",
       theme: ThemeData(
 
         primarySwatch: Colors.red,
       ),
-      home: RootPage(title: 'Stopwatchinator'),
+      home: RootPage(title: 'ctrlUrTimeInator'),
     );
   }
 }
