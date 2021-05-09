@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
       title: "ctrlUrTimeInator",
       theme: ThemeData(
 
-        primarySwatch: Colors.red,
+        primarySwatch: Colors.grey,
       ),
       home: RootPage(title: 'ctrlUrTimeInator'),
     );
