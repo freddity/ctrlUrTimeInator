@@ -87,6 +87,7 @@ class _RootPage extends State<RootPage> {
         currentIndex: _currentIndex,
         selectedItemColor: Colors.black,
         onTap: _onItemTapped,
+        backgroundColor: Color(0xfffafbfc),
       ),
     );
   }
