@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
       title: "ctrlUrTimeInator",
       theme: ThemeData(
         fontFamily: 'Roboto',
-        primaryColor: Color(0xFFFAFAFA),
+        primaryColor: Color(0xFFFCFBF9),
       ),
       home: RootPage(title: 'ctrlUrTimeInator'),
     );
@@ -57,8 +57,7 @@ class _RootPage extends State<RootPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
-      body: _children[_currentIndex],
+      body: _children[_currentIndex], backgroundColor: Color(0xFFF6F3EE),
       bottomNavigationBar: BottomNavigationBar(
         showSelectedLabels: false,
         showUnselectedLabels: false,

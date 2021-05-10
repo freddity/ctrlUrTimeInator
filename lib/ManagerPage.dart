@@ -32,26 +32,31 @@ class _ManagerPageState extends State<ManagerPage> {
                 leading: Icon(Icons.edit_outlined),
                 title: Text("Drawing", style: TextStyle(color: Color(0xff3A3A3A))),
                 trailing: Icon(Icons.arrow_forward_ios),
+                tileColor: Color(0xFFFDFDFB),
               ),
               ListTile(
                 leading: Icon(Icons.gamepad_outlined),
                 title: Text("Gaming"),
                 trailing: Icon(Icons.arrow_forward_ios),
+                tileColor: Color(0xFFFDFDFB),
               ),
               ListTile(
                 leading: Icon(Icons.school_outlined),
                 title: Text("School"),
                 trailing: Icon(Icons.arrow_forward_ios),
+                tileColor: Color(0xFFFDFDFB),
               ),
               ListTile(
                 leading: Icon(Icons.work_outline),
                 title: Text("Work"),
                 trailing: Icon(Icons.arrow_forward_ios),
+                tileColor: Color(0xFFFDFDFB),
               ),
               ListTile(
                 leading: Icon(Icons.run_circle_outlined),
                 title: Text("Running"),
                 trailing: Icon(Icons.arrow_forward_ios),
+                tileColor: Color(0xFFFDFDFB),
               )
             ]
           ).toList()
