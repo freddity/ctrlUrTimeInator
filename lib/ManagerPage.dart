@@ -12,7 +12,7 @@ class _ManagerPageState extends State<ManagerPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        elevation: 0.5,
+        elevation: 1,
         centerTitle: true,
         title: Text("Manager", style: TextStyle(
             fontWeight: FontWeight.bold,
@@ -31,31 +31,31 @@ class _ManagerPageState extends State<ManagerPage> {
                 /*focusColor: ,*/
                 leading: Icon(Icons.edit_outlined),
                 title: Text("Drawing", style: TextStyle(color: Color(0xff3A3A3A))),
-                trailing: Icon(Icons.arrow_forward_ios),
+                trailing: Icon(Icons.arrow_forward_ios, size: 15, color: Color(0xffdbdbdb)),
                 tileColor: Color(0xFFFDFDFB),
               ),
               ListTile(
                 leading: Icon(Icons.gamepad_outlined),
                 title: Text("Gaming"),
-                trailing: Icon(Icons.arrow_forward_ios),
+                trailing: Icon(Icons.arrow_forward_ios, size: 15, color: Color(0xffdbdbdb)),
                 tileColor: Color(0xFFFDFDFB),
               ),
               ListTile(
                 leading: Icon(Icons.school_outlined),
                 title: Text("School"),
-                trailing: Icon(Icons.arrow_forward_ios),
+                trailing: Icon(Icons.arrow_forward_ios, size: 15, color: Color(0xffdbdbdb)),
                 tileColor: Color(0xFFFDFDFB),
               ),
               ListTile(
                 leading: Icon(Icons.work_outline),
                 title: Text("Work"),
-                trailing: Icon(Icons.arrow_forward_ios),
+                trailing: Icon(Icons.arrow_forward_ios, size: 15, color: Color(0xffdbdbdb)),
                 tileColor: Color(0xFFFDFDFB),
               ),
               ListTile(
                 leading: Icon(Icons.run_circle_outlined),
                 title: Text("Running"),
-                trailing: Icon(Icons.arrow_forward_ios),
+                trailing: Icon(Icons.arrow_forward_ios, size: 15, color: Color(0xffdbdbdb)),
                 tileColor: Color(0xFFFDFDFB),
               )
             ]
