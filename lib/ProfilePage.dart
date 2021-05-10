@@ -15,7 +15,12 @@ class _ProfilePageState extends State<ProfilePage> {
         elevation: 0,
         centerTitle: true,
         backgroundColor: Colors.white10,
-        title: Text("Profile", style: TextStyle(color: Colors.black)),
+        title: Text("Profile", style: TextStyle(
+            fontWeight: FontWeight.bold,
+            color: Color(0xff3A3A3A),
+            fontSize: 17.5,
+            letterSpacing: 0.1)
+        ),
       ),
       body: Center(
         child: Text("It's profile page"),
