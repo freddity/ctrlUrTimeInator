@@ -23,6 +23,7 @@ class _ManagerPageState extends State<ManagerPage> {
       ),
       body: Center(
         child: ListView(
+          padding: EdgeInsets.only(top:40),
           children: ListTile.divideTiles(
             context: context,
             tiles: [
