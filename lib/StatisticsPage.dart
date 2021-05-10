@@ -15,7 +15,12 @@ class _StatisticsPageState extends State<StatisticsPage> {
         elevation: 0,
         centerTitle: true,
         backgroundColor: Colors.white10,
-        title: Text("Statistics", style: TextStyle(color: Colors.black)),
+        title: Text("Statistics", style: TextStyle(
+            fontWeight: FontWeight.bold,
+            color: Color(0xff3A3A3A),
+            fontSize: 17.5,
+            letterSpacing: 0.1)
+        ),
       ),
       body: Center(
         child: Text("It's statistics page"),
