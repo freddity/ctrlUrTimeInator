@@ -29,31 +29,31 @@ class _ManagerPageState extends State<ManagerPage> {
             tiles: [
               ListTile(
                 /*focusColor: ,*/
-                leading: Icon(Icons.edit_outlined),
+                leading: Icon(Icons.edit_outlined, size: 20),
                 title: Text("Drawing", style: TextStyle(color: Color(0xff3A3A3A))),
                 trailing: Icon(Icons.arrow_forward_ios, size: 15, color: Color(0xffdbdbdb)),
                 tileColor: Color(0xFFFDFDFB),
               ),
               ListTile(
-                leading: Icon(Icons.gamepad_outlined),
+                leading: Icon(Icons.gamepad_outlined, size: 20),
                 title: Text("Gaming"),
                 trailing: Icon(Icons.arrow_forward_ios, size: 15, color: Color(0xffdbdbdb)),
                 tileColor: Color(0xFFFDFDFB),
               ),
               ListTile(
-                leading: Icon(Icons.school_outlined),
+                leading: Icon(Icons.school_outlined, size: 20),
                 title: Text("School"),
                 trailing: Icon(Icons.arrow_forward_ios, size: 15, color: Color(0xffdbdbdb)),
                 tileColor: Color(0xFFFDFDFB),
               ),
               ListTile(
-                leading: Icon(Icons.work_outline),
+                leading: Icon(Icons.work_outline, size: 20),
                 title: Text("Work"),
                 trailing: Icon(Icons.arrow_forward_ios, size: 15, color: Color(0xffdbdbdb)),
                 tileColor: Color(0xFFFDFDFB),
               ),
               ListTile(
-                leading: Icon(Icons.run_circle_outlined),
+                leading: Icon(Icons.run_circle_outlined, size: 20),
                 title: Text("Running"),
                 trailing: Icon(Icons.arrow_forward_ios, size: 15, color: Color(0xffdbdbdb)),
                 tileColor: Color(0xFFFDFDFB),
