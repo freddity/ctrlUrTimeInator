@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter/rendering.dart';
 
 import 'ManagerPage.dart';
 import 'ProfilePage.dart';
@@ -10,7 +11,6 @@ import 'StopwatchPage.dart';
 void main() {
   runApp(MyApp());
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(statusBarColor: Colors.transparent));
-
 }
 
 class RootPage extends StatefulWidget {
@@ -26,6 +26,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    debugPaintSizeEnabled = false;
     return MaterialApp(
       title: "ctrlUrTimeInator",
       theme: ThemeData(

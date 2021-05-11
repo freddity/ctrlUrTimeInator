@@ -41,20 +41,45 @@ class _ManagerPageState extends State<ManagerPage> {
             letterSpacing: 0.1)
         )
       ),
-      body: Center(
-        child: ListView.separated(
-          itemCount: _leading.length,
-          padding: EdgeInsets.only(top:40),
-          separatorBuilder: (context, int index) => Divider(),
-          itemBuilder: (BuildContext context, int index) =>
-            ListTile(
-              leading: _leading[index],
-              title: _title[index],
-              trailing: _trailing,
-              tileColor: _color,
-            ),
+      body: ListView.separated(
+        itemCount: _leading.length,
+        padding: EdgeInsets.only(top:40),
+        separatorBuilder: (context, int index) => Divider(
+          height: 1,
+          indent: 50,
         ),
-        //todo list item adding button
+        itemBuilder: (BuildContext context, int index) =>
+            SizedBox(
+              height: 45,
+              child: ListTile(
+                leading: Container(
+                  margin: EdgeInsets.only(bottom: 10.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [_leading[index]],
+                  ),
+                ),
+                title: Container(
+                  margin: EdgeInsets.only(bottom: 10.0),
+                  alignment: Alignment.centerLeft,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [_title[index]],
+                  ),
+                ),
+                trailing: Container(
+                  margin: EdgeInsets.only(bottom: 10.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [_trailing],
+                  )
+                ),
+                tileColor: _color,
+            ),
+           )
       ),
     );
   }
