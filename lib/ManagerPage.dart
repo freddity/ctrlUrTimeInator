@@ -13,11 +13,30 @@ class ManagerPage extends StatefulWidget {
 
 class _ManagerPageState extends State<ManagerPage> {
 
+  List<Icon> _leading = [
+    Icon(Icons.edit_outlined, size: 16, color: Color(0xff808080)),
+    Icon(Icons.gamepad_outlined, size: 16, color: Color(0xff808080)),
+    Icon(Icons.school_outlined, size: 16, color: Color(0xff808080)),
+    Icon(Icons.work_outline, size: 16, color: Color(0xff808080)),
+    Icon(Icons.run_circle_outlined, size: 16, color: Color(0xff808080))
+  ];
+
+  List<Text> _title = [
+    Text("Drawing", style: TextStyle(color: Color(0xff252525)), textAlign: TextAlign.center),
+    Text("Gaming", style: TextStyle(color: Color(0xff252525)), textAlign: TextAlign.center),
+    Text("School", style: TextStyle(color: Color(0xff252525)), textAlign: TextAlign.center),
+    Text("Work", style: TextStyle(color: Color(0xff252525)), textAlign: TextAlign.center),
+    Text("Running", style: TextStyle(color: Color(0xff252525)), textAlign: TextAlign.center)
+  ];
+
+  Icon _trailing = Icon(Icons.arrow_forward_ios, size: 15, color: Color(0xffdbdbdb));
+  Color _color = Color(0xFFFDFDFB);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        elevation: 0.5,
+        elevation: 1,
         centerTitle: true,
         title: Text("Manager", style: TextStyle(
             fontWeight: FontWeight.bold,
@@ -26,42 +45,78 @@ class _ManagerPageState extends State<ManagerPage> {
             letterSpacing: 0.1)
         )
       ),
-      body: Center(
-        child: ListView(
-          children: ListTile.divideTiles(
-            context: context,
-            tiles: [
-              ListTile(
-                /*focusColor: ,*/
-                leading: Icon(Icons.edit_outlined),
-                title: Text("Drawing", style: TextStyle(color: Color(0xff3A3A3A))),
-                trailing: Icon(Icons.arrow_forward_ios),
-              ),
-              ListTile(
-                leading: Icon(Icons.gamepad_outlined),
-                title: Text("Gaming"),
-                trailing: Icon(Icons.arrow_forward_ios),
-              ),
-              ListTile(
-                leading: Icon(Icons.school_outlined),
-                title: Text("School"),
-                trailing: Icon(Icons.arrow_forward_ios),
-              ),
-              ListTile(
-                leading: Icon(Icons.work_outline),
-                title: Text("Work"),
-                trailing: Icon(Icons.arrow_forward_ios),
-              ),
-              ListTile(
-                leading: Icon(Icons.run_circle_outlined),
-                title: Text("Running"),
-                trailing: Icon(Icons.arrow_forward_ios),
-              )
-            ]
-          ).toList()
+      body: ListView.separated(
+        itemCount: _leading.length,
+        padding: EdgeInsets.only(top:40),
+        separatorBuilder: (context, int index) => Divider(
+          height: 1,
+          indent: 50,
         ),
-        //todo list item adding button
+        itemBuilder: (BuildContext context, int index) =>
+            SizedBox(
+              height: 38,
+              child: ListTile(
+                leading: Container(
+                  margin: EdgeInsets.only(bottom: 15.0, left: 10),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [_leading[index]],
+                  ),
+                ),
+                title: Container(
+                  margin: EdgeInsets.only(bottom: 15.0),
+                  alignment: Alignment.centerLeft,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [_title[index]],
+                  ),
+                ),
+                trailing: Container(
+                  margin: EdgeInsets.only(bottom: 15.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [_trailing],
+                  )
+                ),
+                tileColor: _color,
+            ),
+           )
       ),
     );
   }
 }
+
+/*
+ListTile(
+leading: Icon(Icons.edit_outlined, size: 20),
+title: Text("Drawing", style: TextStyle(color: Color(0xff3A3A3A))),
+trailing: Icon(Icons.arrow_forward_ios, size: 15, color: Color(0xffdbdbdb)),
+tileColor: Color(0xFFFDFDFB),
+),
+ListTile(
+leading: Icon(Icons.gamepad_outlined, size: 20),
+title: Text("Gaming"),
+trailing: Icon(Icons.arrow_forward_ios, size: 15, color: Color(0xffdbdbdb)),
+tileColor: Color(0xFFFDFDFB),
+),
+ListTile(
+leading: Icon(Icons.school_outlined, size: 20),
+title: Text("School"),
+trailing: Icon(Icons.arrow_forward_ios, size: 15, color: Color(0xffdbdbdb)),
+tileColor: Color(0xFFFDFDFB),
+);
+ListTile(
+leading: Icon(Icons.work_outline, size: 20),
+title: Text("Work"),
+trailing: Icon(Icons.arrow_forward_ios, size: 15, color: Color(0xffdbdbdb)),
+tileColor: Color(0xFFFDFDFB),
+);
+ListTile(
+leading: Icon(Icons.run_circle_outlined, size: 20),
+title: Text("Running"),
+trailing: Icon(Icons.arrow_forward_ios, size: 15, color: Color(0xffdbdbdb)),
+tileColor: Color(0xFFFDFDFB),
+);*/

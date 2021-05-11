@@ -13,6 +13,15 @@ void main() {
 
 }
 
+class RootPage extends StatefulWidget {
+  RootPage({Key key, this.title}) : super(key: key);
+
+  final String title;
+
+  @override
+  _RootPage createState() => _RootPage();
+}
+
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
@@ -28,73 +37,28 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class RootPage extends StatefulWidget {
-  RootPage({Key key, this.title}) : super(key: key);
-
-  final String title;
-
-  @override
-  _RootPage createState() => _RootPage();
-}
-
-
-class _Page {
-  _Page({this.widget});
-  final StatefulWidget widget;
-}
-
-class _RootPage extends State<RootPage> with SingleTickerProviderStateMixin {
+class _RootPage extends State<RootPage> {
 
   int _currentIndex = 0;
 
   void _onItemTapped(int index) {
     setState(() {
       _currentIndex = index;
-      _controller.animateTo(index);
     });
   }
 
-  final List<_Page> _allPages = [
-    _Page(widget: ManagerPage()),
-    _Page(widget: StatisticsPage()),
-    _Page(widget: StopwatchPage()),
-    _Page(widget: ProfilePage())
+  final List<Widget> _children = [
+    ManagerPage(),
+    StatisticsPage(),
+    StopwatchPage(),
+    ProfilePage()
   ];
-
-  TabController _controller;
-
-  @override
-  void initState() {
-    super.initState();
-    _controller = TabController(vsync: this, length: _allPages.length);
-  }
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
 
-      body: TabBarView(
-        physics: NeverScrollableScrollPhysics(),
-        controller: _controller,
-        children: _allPages.map<Widget>((_Page page) {
-            return SafeArea(
-              top: false,
-              bottom: false,
-              child: Container(
-                key: ObjectKey(page.widget),
-                padding: const EdgeInsets.all(12.0),
-                child: page.widget,
-              ),
-            );
-          }
-        ).toList(),
-      ),
+      body: _children[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         showSelectedLabels: false,
         showUnselectedLabels: false,
