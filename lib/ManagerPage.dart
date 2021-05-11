@@ -9,20 +9,19 @@ class ManagerPage extends StatefulWidget {
 class _ManagerPageState extends State<ManagerPage> {
 
   List<Icon> _leading = [
-    Icon(Icons.edit_outlined, size: 20),
-    Icon(Icons.gamepad_outlined, size: 20),
-    Icon(Icons.school_outlined, size: 20),
-    Icon(Icons.work_outline, size: 20),
-    Icon(Icons.run_circle_outlined, size: 20)
+    Icon(Icons.edit_outlined, size: 16, color: Color(0xff808080)),
+    Icon(Icons.gamepad_outlined, size: 16, color: Color(0xff808080)),
+    Icon(Icons.school_outlined, size: 16, color: Color(0xff808080)),
+    Icon(Icons.work_outline, size: 16, color: Color(0xff808080)),
+    Icon(Icons.run_circle_outlined, size: 16, color: Color(0xff808080))
   ];
 
   List<Text> _title = [
-    Text("Drawing", style: TextStyle(color: Color(0xff3A3A3A)), textAlign: TextAlign.center),
-    Text("Gaming", style: TextStyle(color: Color(0xff3A3A3A)), textAlign: TextAlign.center),
-    Text("School", style: TextStyle(color: Color(0xff3A3A3A)), textAlign: TextAlign.center),
-    Text("School", style: TextStyle(color: Color(0xff3A3A3A)), textAlign: TextAlign.center),
-    Text("Work", style: TextStyle(color: Color(0xff3A3A3A)), textAlign: TextAlign.center),
-    Text("Running", style: TextStyle(color: Color(0xff3A3A3A)), textAlign: TextAlign.center)
+    Text("Drawing", style: TextStyle(color: Color(0xff252525)), textAlign: TextAlign.center),
+    Text("Gaming", style: TextStyle(color: Color(0xff252525)), textAlign: TextAlign.center),
+    Text("School", style: TextStyle(color: Color(0xff252525)), textAlign: TextAlign.center),
+    Text("Work", style: TextStyle(color: Color(0xff252525)), textAlign: TextAlign.center),
+    Text("Running", style: TextStyle(color: Color(0xff252525)), textAlign: TextAlign.center)
   ];
 
   Icon _trailing = Icon(Icons.arrow_forward_ios, size: 15, color: Color(0xffdbdbdb));
@@ -50,10 +49,10 @@ class _ManagerPageState extends State<ManagerPage> {
         ),
         itemBuilder: (BuildContext context, int index) =>
             SizedBox(
-              height: 45,
+              height: 38,
               child: ListTile(
                 leading: Container(
-                  margin: EdgeInsets.only(bottom: 10.0),
+                  margin: EdgeInsets.only(bottom: 15.0, left: 10),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -61,7 +60,7 @@ class _ManagerPageState extends State<ManagerPage> {
                   ),
                 ),
                 title: Container(
-                  margin: EdgeInsets.only(bottom: 10.0),
+                  margin: EdgeInsets.only(bottom: 15.0),
                   alignment: Alignment.centerLeft,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -70,7 +69,7 @@ class _ManagerPageState extends State<ManagerPage> {
                   ),
                 ),
                 trailing: Container(
-                  margin: EdgeInsets.only(bottom: 10.0),
+                  margin: EdgeInsets.only(bottom: 15.0),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
