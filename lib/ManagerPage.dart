@@ -58,10 +58,16 @@ class _ManagerPageState extends State<ManagerPage> {
                 shrinkWrap: true,
                 itemCount: _leading.length + 2,
                 padding: EdgeInsets.only(top:7),
-                separatorBuilder: (context, index) => Divider(
-                  height: 0.5,
-                  indent: 50,
-                ),
+                separatorBuilder: (context, index) =>
+                  index == 0 || index == _leading.length ?
+                  Divider(
+                      height: 0.5,
+                      indent: 0
+                  ) :
+                  Divider(
+                      height: 0.5,
+                      indent: 50
+                  ),
                 itemBuilder: (context, index) {
                   if(index == 0 || index == _leading.length + 1) {
                     return Container();
