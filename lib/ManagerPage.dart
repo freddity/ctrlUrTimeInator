@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'RootPage.dart';
 
 class ManagerPage extends StatefulWidget {
-
   @override
   _ManagerPageState createState() => _ManagerPageState();
 
@@ -12,7 +11,6 @@ class ManagerPage extends StatefulWidget {
 }
 
 class _ManagerPageState extends State<ManagerPage> {
-
   List<Icon> _leading = [
     Icon(Icons.edit_outlined, size: 16, color: Color(0xff808080)),
     Icon(Icons.gamepad_outlined, size: 16, color: Color(0xff808080)),
@@ -22,54 +20,61 @@ class _ManagerPageState extends State<ManagerPage> {
   ];
 
   List<Text> _title = [
-    Text("Drawing", style: TextStyle(color: Color(0xff252525), fontSize: 14.5), textAlign: TextAlign.center),
-    Text("Gaming", style: TextStyle(color: Color(0xff252525), fontSize: 14.5), textAlign: TextAlign.center),
-    Text("School", style: TextStyle(color: Color(0xff252525), fontSize: 14.5), textAlign: TextAlign.center),
-    Text("Work", style: TextStyle(color: Color(0xff252525), fontSize: 14.5), textAlign: TextAlign.center),
-    Text("Running", style: TextStyle(color: Color(0xff252525), fontSize: 14.5), textAlign: TextAlign.center)
+    Text("Drawing",
+        style: TextStyle(color: Color(0xff252525), fontSize: 14.5),
+        textAlign: TextAlign.center),
+    Text("Gaming",
+        style: TextStyle(color: Color(0xff252525), fontSize: 14.5),
+        textAlign: TextAlign.center),
+    Text("School",
+        style: TextStyle(color: Color(0xff252525), fontSize: 14.5),
+        textAlign: TextAlign.center),
+    Text("Work",
+        style: TextStyle(color: Color(0xff252525), fontSize: 14.5),
+        textAlign: TextAlign.center),
+    Text("Running",
+        style: TextStyle(color: Color(0xff252525), fontSize: 14.5),
+        textAlign: TextAlign.center)
   ];
 
-  Icon _trailing = Icon(Icons.arrow_forward_ios, size: 15, color: Color(0xffdbdbdb));
+  Icon _trailing =
+      Icon(Icons.arrow_forward_ios, size: 15, color: Color(0xffdbdbdb));
   Color _color = Color(0xFFFDFDFB);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        elevation: 1,
-        centerTitle: true,
-        title: Text("Manager", style: TextStyle(
-            fontWeight: FontWeight.bold,
-            color: Color(0xff3A3A3A),
-            fontSize: 17.5,
-            letterSpacing: 0.1)
-        )
-      ),
+          elevation: 1,
+          centerTitle: true,
+          title: Text("Manager",
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: Color(0xff3A3A3A),
+                  fontSize: 17.5,
+                  letterSpacing: 0.1))),
       body: Column(
         children: [
           Container(
-              padding: EdgeInsets.only(top:65, left: 27),
+              padding: EdgeInsets.only(top: 65, left: 27),
               alignment: Alignment.centerLeft,
-              child: Text("ACTIVITIES", style: TextStyle(color: Color(0xff8C8C8A), letterSpacing: 1, fontSize: 11.5))
-          ),
+              child: Text("ACTIVITIES",
+                  style: TextStyle(
+                      color: Color(0xff8C8C8A),
+                      letterSpacing: 1,
+                      fontSize: 11.5))),
           Container(
             child: ListView.separated(
                 scrollDirection: Axis.vertical,
                 shrinkWrap: true,
                 itemCount: _leading.length + 2,
-                padding: EdgeInsets.only(top:7),
+                padding: EdgeInsets.only(top: 7),
                 separatorBuilder: (context, index) =>
-                  index == 0 || index == _leading.length ?
-                  Divider(
-                      height: 0.5,
-                      indent: 0
-                  ) :
-                  Divider(
-                      height: 0.5,
-                      indent: 50
-                  ),
+                    index == 0 || index == _leading.length
+                        ? Divider(height: 0.5, indent: 0)
+                        : Divider(height: 0.5, indent: 50),
                 itemBuilder: (context, index) {
-                  if(index == 0 || index == _leading.length + 1) {
+                  if (index == 0 || index == _leading.length + 1) {
                     return Container();
                   }
 
@@ -99,48 +104,14 @@ class _ManagerPageState extends State<ManagerPage> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [_trailing],
-                          )
-                      ),
+                          )),
                       tileColor: _color,
                     ),
                   );
-                }
-            ),
+                }),
           )
         ],
       ),
     );
   }
 }
-/*
-
-return SizedBox(
-height: 38,
-child: ListTile(
-leading: Container(
-margin: EdgeInsets.only(bottom: 15.0, left: 10),
-child: Column(
-mainAxisAlignment: MainAxisAlignment.center,
-crossAxisAlignment: CrossAxisAlignment.center,
-children: [],
-),
-),
-title: Container(
-margin: EdgeInsets.only(bottom: 15.0),
-alignment: Alignment.centerLeft,
-child: Column(
-mainAxisAlignment: MainAxisAlignment.center,
-crossAxisAlignment: CrossAxisAlignment.center,
-children: [],
-),
-),
-trailing: Container(
-margin: EdgeInsets.only(bottom: 15.0),
-child: Column(
-mainAxisAlignment: MainAxisAlignment.center,
-crossAxisAlignment: CrossAxisAlignment.center,
-children: [_trailing],
-)
-),
-tileColor: _color,
-),*/
