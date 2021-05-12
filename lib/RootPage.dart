@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -57,36 +58,27 @@ class _RootPage extends State<RootPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       body: _children[_currentIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        showSelectedLabels: false,
-        showUnselectedLabels: false,
-        type: BottomNavigationBarType.fixed,
+      bottomNavigationBar: CupertinoTabBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.article_outlined, size: 29, color: Color(0xff121212)),
             activeIcon: Icon(Icons.article, size: 29, color: Color(0xff121212)),
-            label: 'Management',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.assessment_outlined, size: 29, color: Color(0xff121212)),
             activeIcon: Icon(Icons.assessment, size: 29, color: Color(0xff121212)),
-            label: 'Statistics',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.play_circle_outline_rounded, size: 29, color: Color(0xff121212)),
             activeIcon: Icon(Icons.play_circle_fill_rounded, size: 29, color: Color(0xff121212)),
-            label: 'Stopwatch',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.account_box_outlined, size: 29, color: Color(0xff121212)),
             activeIcon: Icon(Icons.account_box, size: 29, color: Color(0xff121212)),
-            label: 'Profile',
           ),
         ],
         currentIndex: _currentIndex,
-        selectedItemColor: Colors.black,
         onTap: _onItemTapped,
       ),
     );
