@@ -63,7 +63,7 @@ class _ManagerPageState extends State<ManagerPage> {
       ),
       body: Column(children: [
         Container(
-            padding: EdgeInsets.only(left: 27),
+            padding: EdgeInsets.only(left: 27, bottom: 7),
             alignment: Alignment.centerLeft,
             child: Text('ACTIVITIES (${_leading.length})',
                 style: TextStyle(color: Color(0xff8C8C8A), fontSize: 11.5))),
@@ -74,19 +74,32 @@ class _ManagerPageState extends State<ManagerPage> {
               itemCount: 15,
               itemBuilder: (context, index) {
                 return Card(
+                  margin: EdgeInsets.only(bottom: 15.0, left: 10, right: 10),
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(15.0)),
-                  child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: <Widget>[
-                        ListTile(
-                          leading: const Icon(Icons.album),
-                          title: Text('The  is having:'),
-                          subtitle: Text(' Votes.'),
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15.0)),
+                  child:
+                      Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
+                        Container(
+                          decoration: BoxDecoration(
+                              color: Color(0xffffffff),
+                              borderRadius: BorderRadius.circular(15.0),
+                              boxShadow: [
+                                BoxShadow(
+                                    blurRadius: 8,
+                                    offset: Offset(0, 15),
+                                    color: Color(0xffE9E8EB).withOpacity(0.6),
+                                    spreadRadius: -9)
+                              ]),
+
+                          child: ListTile(
+                            leading: const Icon(Icons.album),
+                            title: Text('The  is having:'),
+                            subtitle: Text(' Votes.'),
+                            shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(15.0)),
+                    ),
                         ),
-                      ]),
+                  ]),
                 );
               }),
         )
