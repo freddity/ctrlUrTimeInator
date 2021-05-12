@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class ManagerPage extends StatefulWidget {
@@ -41,27 +42,18 @@ class _ManagerPageState extends State<ManagerPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Color(0xffEFEEF3),
-      appBar: PreferredSize(
-        preferredSize: Size.fromHeight(100),
-        child: AppBar(
-            automaticallyImplyLeading: false,
-            // hides leading widget
-            flexibleSpace: Container(
-              padding: EdgeInsets.only(top: 70, left: 20),
-              child: Text("Manager",
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: Color(0xff3A3A3A),
-                      fontSize: 34,
-                      letterSpacing: 0.1)),
-            ),
-            backgroundColor: Color(0xffEFEEF3),
-            elevation: 0,
-            centerTitle: false),
+    return CupertinoPageScaffold(
+      navigationBar: CupertinoSliverNavigationBar(),
+      child: SafeArea(
+        child: Column(
+          children: <Widget>[
+            Text('Personal Info'),
+            Text('t1'),
+          ],
+        ),
       ),
-      body: Column(children: [
+      backgroundColor: Color(0xffEFEEF3),
+      child: Column(children: [
         Container(
             padding: EdgeInsets.only(left: 27, bottom: 7),
             alignment: Alignment.centerLeft,
