@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'RootPage.dart';
-
 class ManagerPage extends StatefulWidget {
   @override
   _ManagerPageState createState() => _ManagerPageState();
