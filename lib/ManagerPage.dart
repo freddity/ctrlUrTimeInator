@@ -37,20 +37,23 @@ class _ManagerPageState extends State<ManagerPage> {
 
   Icon _trailing =
       Icon(Icons.arrow_forward_ios, size: 15, color: Color(0xffdbdbdb));
-  Color _color = Color(0xFFFDFDFB);
+  Color _color = Color(0xffffffff);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xffEFEEF3),
       appBar: AppBar(
-          elevation: 1,
-          centerTitle: true,
-          title: Text("Manager",
-              style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  color: Color(0xff3A3A3A),
-                  fontSize: 17.5,
-                  letterSpacing: 0.1))),
+        backgroundColor: Color(0xffEFEEF3),
+        elevation: 1,
+        centerTitle: true,
+        title: Text("Manager",
+            style: TextStyle(
+                fontWeight: FontWeight.bold,
+                color: Color(0xff3A3A3A),
+                fontSize: 17.5,
+                letterSpacing: 0.1)),
+      ),
       body: Column(
         children: [
           Container(
@@ -104,9 +107,24 @@ class _ManagerPageState extends State<ManagerPage> {
                     ),
                   );
                 }),
-          )
+          ),
         ],
       ),
+
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+
+      floatingActionButton: Container(
+        padding: EdgeInsets.only(bottom: 285),
+        child: Container(
+          width: 38,
+          height: 38,
+          child: FloatingActionButton(
+            elevation: 0,
+            backgroundColor: Color.fromRGBO(0, 122, 255, 1.0),
+            child: Icon(Icons.add_rounded, size: 25, color: Color.fromRGBO(255, 255, 255, 1.0)),
+          ),
+        )
+      )
     );
   }
 }
