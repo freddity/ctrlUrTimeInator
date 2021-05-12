@@ -42,89 +42,94 @@ class _ManagerPageState extends State<ManagerPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xffEFEEF3),
-      appBar: AppBar(
         backgroundColor: Color(0xffEFEEF3),
-        elevation: 1,
-        centerTitle: true,
-        title: Text("Manager",
-            style: TextStyle(
-                fontWeight: FontWeight.bold,
-                color: Color(0xff3A3A3A),
-                fontSize: 17.5,
-                letterSpacing: 0.1)),
-      ),
-      body: Column(
-        children: [
-          Container(
-              padding: EdgeInsets.only(top: 65, left: 27),
-              alignment: Alignment.centerLeft,
-              child: Text('ACTIVITIES (${_leading.length})',
-                  style: TextStyle(color: Color(0xff8C8C8A), fontSize: 11.5))),
-          Container(
-            child: ListView.separated(
-                scrollDirection: Axis.vertical,
-                shrinkWrap: true,
-                itemCount: _leading.length + 2,
-                padding: EdgeInsets.only(top: 7),
-                separatorBuilder: (context, index) =>
-                    index == 0 || index == _leading.length
-                        ? Divider(height: 0.5, indent: 0)
-                        : Divider(height: 0.5, indent: 50),
-                itemBuilder: (context, index) {
-                  if (index == 0 || index == _leading.length + 1) {
-                    return Container();
-                  }
+        appBar: PreferredSize(
+          preferredSize: Size.fromHeight(100),
+          child: AppBar(
+              automaticallyImplyLeading: false,
+              // hides leading widget
+              flexibleSpace: Container(
+                padding: EdgeInsets.only(top: 70, left: 20),
+                child: Text("Manager",
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Color(0xff3A3A3A),
+                        fontSize: 34,
+                        letterSpacing: 0.1)),
+              ),
+              backgroundColor: Color(0xffEFEEF3),
+              elevation: 0,
+              centerTitle: false),
+        ),
+        body: Column(
+          children: [
+            Container(
+                padding: EdgeInsets.only(left: 27),
+                alignment: Alignment.centerLeft,
+                child: Text('ACTIVITIES (${_leading.length})',
+                    style:
+                        TextStyle(color: Color(0xff8C8C8A), fontSize: 11.5))),
+            Container(
+              child: ListView.separated(
+                  scrollDirection: Axis.vertical,
+                  shrinkWrap: true,
+                  itemCount: _leading.length + 2,
+                  padding: EdgeInsets.only(top: 7),
+                  separatorBuilder: (context, index) =>
+                      index == 0 || index == _leading.length
+                          ? Divider(height: 0.5, indent: 0)
+                          : Divider(height: 0.5, indent: 50),
+                  itemBuilder: (context, index) {
+                    if (index == 0 || index == _leading.length + 1) {
+                      return Container();
+                    }
 
-                  return SizedBox(
-                    height: 38,
-                    child: ListTile(
-                      leading: Container(
-                        margin: EdgeInsets.only(bottom: 15.0, left: 10),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [_leading[index - 1]],
-                        ),
-                      ),
-                      title: Container(
-                        margin: EdgeInsets.only(bottom: 15.0),
-                        alignment: Alignment.centerLeft,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [_title[index - 1]],
-                        ),
-                      ),
-                      trailing: Container(
-                          margin: EdgeInsets.only(bottom: 15.0),
+                    return SizedBox(
+                      height: 38,
+                      child: ListTile(
+                        leading: Container(
+                          margin: EdgeInsets.only(bottom: 15.0, left: 10),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [_trailing],
-                          )),
-                      tileColor: _color,
-                    ),
-                  );
-                }),
-          ),
-        ],
-      ),
-
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-
-      floatingActionButton: Container(
-        padding: EdgeInsets.only(bottom: 285),
-        child: Container(
-          width: 38,
-          height: 38,
-          child: FloatingActionButton(
-            elevation: 0,
-            backgroundColor: Color.fromRGBO(0, 122, 255, 1.0),
-            child: Icon(Icons.add_rounded, size: 25, color: Color.fromRGBO(255, 255, 255, 1.0)),
-          ),
-        )
-      )
-    );
+                            children: [_leading[index - 1]],
+                          ),
+                        ),
+                        title: Container(
+                          margin: EdgeInsets.only(bottom: 15.0),
+                          alignment: Alignment.centerLeft,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [_title[index - 1]],
+                          ),
+                        ),
+                        trailing: Container(
+                            margin: EdgeInsets.only(bottom: 15.0),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [_trailing],
+                            )),
+                        tileColor: _color,
+                      ),
+                    );
+                  }),
+            ),
+          ],
+        ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+        floatingActionButton: Container(
+            padding: EdgeInsets.only(bottom: 285),
+            child: Container(
+              width: 38,
+              height: 38,
+              child: FloatingActionButton(
+                elevation: 0,
+                backgroundColor: Color.fromRGBO(0, 122, 255, 1.0),
+                child: Icon(Icons.add_rounded,
+                    size: 25, color: Color.fromRGBO(255, 255, 255, 1.0)),
+              ),
+            )));
   }
 }
