@@ -56,11 +56,8 @@ class _ManagerPageState extends State<ManagerPage> {
           Container(
               padding: EdgeInsets.only(top: 65, left: 27),
               alignment: Alignment.centerLeft,
-              child: Text("ACTIVITIES",
-                  style: TextStyle(
-                      color: Color(0xff8C8C8A),
-                      letterSpacing: 1,
-                      fontSize: 11.5))),
+              child: Text('ACTIVITIES (${_leading.length})',
+                  style: TextStyle(color: Color(0xff8C8C8A), fontSize: 11.5))),
           Container(
             child: ListView.separated(
                 scrollDirection: Axis.vertical,
