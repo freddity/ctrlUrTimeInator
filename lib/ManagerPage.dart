@@ -61,51 +61,41 @@ class _ManagerPageState extends State<ManagerPage> {
             elevation: 0,
             centerTitle: false),
       ),
-      body: SingleChildScrollView(
-        physics: const AlwaysScrollableScrollPhysics(),
-        scrollDirection: Axis.vertical,
-        child: Column(
-          children: [
-            Container(
-                padding: EdgeInsets.only(left: 27),
-                alignment: Alignment.centerLeft,
-                child: Text('ACTIVITIES (${_leading.length})',
-                    style: TextStyle(color: Color(0xff8C8C8A), fontSize: 11.5))),
-            Column(
-              children: [
-                Container(
-                    child: ListView.builder(
-                        physics: const AlwaysScrollableScrollPhysics(),
-                        scrollDirection: Axis.vertical,
-                        itemCount: 15,
-                        itemBuilder: (context, index) {
-                          return Card(
-                            child: Column(
-                                mainAxisSize: MainAxisSize.min,
-                                children: <Widget>[
-                                  ListTile(
-                                      leading: const Icon(Icons.album),
-                                      title: Text('The  is having:'),
-                                      subtitle: Text(' Votes.'))
-                                ]),
-                          );
-                        })),
-                /*Positioned(
-                    top: 20,
-                    child: Container(
-                      //padding: EdgeInsets.only(bottom: 285),
-                        child: FloatingActionButton(
-                            elevation: 0,
-                            backgroundColor: Color.fromRGBO(0, 122, 255, 1.0),
-                            child: Icon(Icons.add_rounded,
-                                size: 25,
-                                color: Color.fromRGBO(255, 255, 255, 1.0)))))*/
-              ],
-            ),
-          ],
-        ),
-      ),
+      body: Column(children: [
+        Container(
+            padding: EdgeInsets.only(left: 27),
+            alignment: Alignment.centerLeft,
+            child: Text('ACTIVITIES (${_leading.length})',
+                style: TextStyle(color: Color(0xff8C8C8A), fontSize: 11.5))),
+        Expanded(
+            child: ListView.builder(
+                physics: const AlwaysScrollableScrollPhysics(),
+                scrollDirection: Axis.vertical,
+                itemCount: 15,
+                itemBuilder: (context, index) {
+                  return Card(
+                    child:
+                    Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
+                      ListTile(
+                          leading: const Icon(Icons.album),
+                          title: Text('The  is having:'),
+                          subtitle: Text(' Votes.'))
+                    ]),
+                  );
+                }),
+        )
+      ]),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButton: Container(
+        width: 40,
+        height: 40,
+        child: FloatingActionButton(
+            elevation: 0,
+            backgroundColor: Color.fromRGBO(0, 122, 255, 1.0),
+            child: Icon(Icons.add_rounded,
+                size: 25,
+                color: Color.fromRGBO(255, 255, 255, 1.0))),
+      ),
     );
   }
 }
