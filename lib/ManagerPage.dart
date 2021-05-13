@@ -46,11 +46,17 @@ class _ManagerPageState extends State<ManagerPage> {
       body: CustomScrollView(
         slivers: [
           CupertinoSliverNavigationBar(
-            backgroundColor: Color(0xfaf6f3),
-            trailing: Container(
-              margin: EdgeInsets.only(top: 50),
-              child: Icon(Icons.edit_outlined,
-                  color: Color.fromRGBO(0, 122, 255, 1.0)),
+            backgroundColor: Color(0x14faf6f3),
+            trailing: IconButton(
+              //onPressed: ,
+              icon: Container(
+                margin: EdgeInsets.only(top: 0),
+                child: Icon(
+                  Icons.edit_outlined,
+                  color: Color.fromRGBO(0, 122, 255, 1.0),
+                  size: 28,
+                ),
+              ),
             ),
             largeTitle: Text("Manager",
                 style: TextStyle(
@@ -69,7 +75,16 @@ class _ManagerPageState extends State<ManagerPage> {
                   child:
                       Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
                     Container(
-
+                      decoration: BoxDecoration(
+                          color: Color(0xffffffff),
+                          borderRadius: BorderRadius.circular(15.0),
+                          boxShadow: [
+                            BoxShadow(
+                                blurRadius: 8,
+                                offset: Offset(0, 0),
+                                color: Color(0xffE9E8EB).withOpacity(0.3),
+                                spreadRadius: -9)
+                          ]),
                       child: ListTile(
                         leading: const Icon(Icons.album),
                         title: Text('The  is having:'),
