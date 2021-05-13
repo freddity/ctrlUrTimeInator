@@ -46,6 +46,7 @@ class _ManagerPageState extends State<ManagerPage> {
       body: CustomScrollView(
         slivers: [
           CupertinoSliverNavigationBar(
+
             backgroundColor: Color(0x14faf6f3),
             trailing: IconButton(
               //onPressed: ,

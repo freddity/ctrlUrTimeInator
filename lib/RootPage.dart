@@ -31,7 +31,8 @@ class MyApp extends StatelessWidget {
       title: "ctrlUrTimeInator",
       theme: ThemeData(
         fontFamily: 'Roboto',
-        primaryColor: Color(0xffEFEEF3), //0x3bfaf6f3 better but cannot set other alpha in primary color
+        primaryColor: Color(0xffEFEEF3),//0x3bfaf6f3 better but cannot set other alpha in primary color
+        accentColor: Color(0xffEFEEF3)
       ),
       home: RootPage(title: 'ctrlUrTimeInator'),
     );
