@@ -46,6 +46,7 @@ class _ManagerPageState extends State<ManagerPage> {
       body: CustomScrollView(
         slivers: [
           CupertinoSliverNavigationBar(
+            backgroundColor: Color(0xfaf6f3),
             trailing: Container(
               margin: EdgeInsets.only(top: 50),
               child: Icon(Icons.edit_outlined,
@@ -55,7 +56,6 @@ class _ManagerPageState extends State<ManagerPage> {
                 style: TextStyle(
                     fontWeight: FontWeight.bold,
                     color: Color(0xff3A3A3A),
-                    fontSize: 34,
                     letterSpacing: 0.1)),
           ),
           SliverPadding(padding: EdgeInsets.only(top: 20)),
@@ -69,16 +69,7 @@ class _ManagerPageState extends State<ManagerPage> {
                   child:
                       Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
                     Container(
-                      decoration: BoxDecoration(
-                          color: Color(0xffffffff),
-                          borderRadius: BorderRadius.circular(15.0),
-                          boxShadow: [
-                            BoxShadow(
-                                blurRadius: 8,
-                                offset: Offset(0, 0),
-                                color: Color(0xffE9E8EB).withOpacity(0.3),
-                                spreadRadius: -9)
-                          ]),
+
                       child: ListTile(
                         leading: const Icon(Icons.album),
                         title: Text('The  is having:'),
