@@ -15,7 +15,12 @@ class _ManagerPageState extends State<ManagerPage> {
     Icon(Icons.gamepad_outlined, size: 16, color: Color(0xff808080)),
     Icon(Icons.school_outlined, size: 16, color: Color(0xff808080)),
     Icon(Icons.work_outline, size: 16, color: Color(0xff808080)),
-    Icon(Icons.run_circle_outlined, size: 16, color: Color(0xff808080))
+    Icon(Icons.run_circle_outlined, size: 16, color: Color(0xff808080)),
+    Icon(Icons.language, size: 16, color: Color(0xff808080)),
+    Icon(Icons.kitchen_outlined, size: 16, color: Color(0xff808080)),
+    Icon(Icons.pool_outlined, size: 16, color: Color(0xff808080)),
+    Icon(Icons.people_outlined, size: 16, color: Color(0xff808080)),
+    Icon(Icons.directions_bike_outlined, size: 16, color: Color(0xff808080))
   ];
 
   List<Text> _title = [
@@ -33,7 +38,22 @@ class _ManagerPageState extends State<ManagerPage> {
         textAlign: TextAlign.center),
     Text("Running",
         style: TextStyle(color: Color(0xff252525), fontSize: 14.5),
-        textAlign: TextAlign.center)
+        textAlign: TextAlign.center),
+    Text("Learning Norwegian",
+        style: TextStyle(color: Color(0xff252525), fontSize: 14.5),
+        textAlign: TextAlign.center),
+    Text("Cooking",
+        style: TextStyle(color: Color(0xff252525), fontSize: 14.5),
+        textAlign: TextAlign.center),
+    Text("Swimming",
+        style: TextStyle(color: Color(0xff252525), fontSize: 14.5),
+        textAlign: TextAlign.center),
+    Text("Meets with friends",
+        style: TextStyle(color: Color(0xff252525), fontSize: 14.5),
+        textAlign: TextAlign.center),
+    Text("Bike riding",
+        style: TextStyle(color: Color(0xff252525), fontSize: 14.5),
+        textAlign: TextAlign.center),
   ];
 
   Icon _trailing =
@@ -42,11 +62,11 @@ class _ManagerPageState extends State<ManagerPage> {
 
   @override
   Widget build(BuildContext context) {
+    print('EEE ${_leading.length}');
     return Scaffold(
       body: CustomScrollView(
         slivers: [
           CupertinoSliverNavigationBar(
-
             backgroundColor: Color(0x14faf6f3),
             trailing: IconButton(
               //onPressed: ,
@@ -62,7 +82,7 @@ class _ManagerPageState extends State<ManagerPage> {
             largeTitle: Text("Manager",
                 style: TextStyle(
                     fontWeight: FontWeight.bold,
-                    color: Color(0xff3A3A3A),
+                    color: Color(0xff040406),
                     letterSpacing: 0.1)),
           ),
           SliverPadding(padding: EdgeInsets.only(top: 20)),
@@ -72,13 +92,13 @@ class _ManagerPageState extends State<ManagerPage> {
                 return Card(
                   margin: EdgeInsets.only(bottom: 10.0, left: 10, right: 10),
                   shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15.0)),
+                      borderRadius: BorderRadius.circular(5.0)),
                   child:
                       Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
                     Container(
                       decoration: BoxDecoration(
                           color: Color(0xffffffff),
-                          borderRadius: BorderRadius.circular(15.0),
+                          borderRadius: BorderRadius.circular(5.0),
                           boxShadow: [
                             BoxShadow(
                                 blurRadius: 8,
@@ -87,8 +107,13 @@ class _ManagerPageState extends State<ManagerPage> {
                                 spreadRadius: -9)
                           ]),
                       child: ListTile(
-                        leading: const Icon(Icons.album),
-                        title: Text('The  is having:'),
+                        leading: Container(
+                          child: _leading[index],
+                          alignment: Alignment.centerLeft,
+                          width: 10,
+                        ),
+                        trailing: _trailing,
+                        title: _title[index],
                         subtitle: Text(' Votes.'),
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(15.0)),
@@ -97,13 +122,15 @@ class _ManagerPageState extends State<ManagerPage> {
                   ]),
                 );
               },
-              childCount: 20,
+              childCount: 10,
             ),
-          )
+          ),
+          SliverPadding(padding: EdgeInsets.only(top: 100))
         ],
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: Container(
+        margin: EdgeInsets.only(bottom: 8),
         width: 40,
         height: 40,
         child: FloatingActionButton(

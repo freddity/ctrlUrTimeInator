@@ -72,3 +72,17 @@ return Scaffold(
                 size: 25, color: Color.fromRGBO(255, 255, 255, 1.0))),
       ),
     );
+
+
+    ListTile(
+                                    leading: Container(
+                                      child: _leading[index],
+                                      alignment: Alignment.centerLeft,
+                                      width: 10,
+                                    ),
+                                    trailing: _trailing,
+                                    title: _title[index],
+                                    subtitle: Text(' Votes.'),
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(15.0)),
+                                  )
