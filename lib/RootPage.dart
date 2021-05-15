@@ -64,7 +64,7 @@ class _RootPage extends State<RootPage> {
       body: _children[_currentIndex],
       bottomNavigationBar: ClipRect(
         child: BackdropFilter(
-          filter: ImageFilter.blur(sigmaX: 2.0, sigmaY: 2.0),
+          filter: ImageFilter.blur(sigmaX: 4.0, sigmaY: 4.0),
           child: Opacity(
             opacity: 0.7,
             child: CupertinoTabBar(
