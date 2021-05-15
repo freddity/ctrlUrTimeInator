@@ -46,7 +46,6 @@ class _ManagerPageState extends State<ManagerPage> {
 
   @override
   Widget build(BuildContext context) {
-    print('EEE ${_leading.length}');
     return Scaffold(
       body: CustomScrollView(
         slivers: [
