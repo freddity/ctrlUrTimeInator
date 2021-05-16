@@ -29,15 +29,11 @@ class _ManagerPageState extends State<ManagerPage> {
     Text("School", style: TextStyle(color: Color(0xff252525), fontSize: 14.5)),
     Text("Work", style: TextStyle(color: Color(0xff252525), fontSize: 14.5)),
     Text("Running", style: TextStyle(color: Color(0xff252525), fontSize: 14.5)),
-    Text("Learning Norwegian",
-        style: TextStyle(color: Color(0xff252525), fontSize: 14.5)),
+    Text("Learning Norwegian", style: TextStyle(color: Color(0xff252525), fontSize: 14.5)),
     Text("Cooking", style: TextStyle(color: Color(0xff252525), fontSize: 14.5)),
-    Text("Swimming",
-        style: TextStyle(color: Color(0xff252525), fontSize: 14.5)),
-    Text("Meets with friends",
-        style: TextStyle(color: Color(0xff252525), fontSize: 14.5)),
-    Text("Bike riding",
-        style: TextStyle(color: Color(0xff252525), fontSize: 14.5)),
+    Text("Swimming", style: TextStyle(color: Color(0xff252525), fontSize: 14.5)),
+    Text("Meets with friends", style: TextStyle(color: Color(0xff252525), fontSize: 14.5)),
+    Text("Bike riding", style: TextStyle(color: Color(0xff252525), fontSize: 14.5)),
   ];
 
   Icon _trailing =
@@ -50,15 +46,16 @@ class _ManagerPageState extends State<ManagerPage> {
       body: CustomScrollView(
         slivers: [
           CupertinoSliverNavigationBar(
-            backgroundColor: Color(0x14faf6f3),
+            backgroundColor: Color(0x125E5D5D),
+            brightness: Brightness.light,
             trailing: IconButton(
               //onPressed: ,
               icon: Container(
                 margin: EdgeInsets.only(top: 0),
                 child: Icon(
-                  Icons.edit_outlined,
+                  CupertinoIcons.ellipsis_circle,
                   color: Color.fromRGBO(0, 122, 255, 1.0),
-                  size: 28,
+                  size: 24,
                 ),
               ),
             ),

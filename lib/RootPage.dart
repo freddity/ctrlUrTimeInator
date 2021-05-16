@@ -66,32 +66,29 @@ class _RootPage extends State<RootPage> {
         child: BackdropFilter(
           filter: ImageFilter.blur(sigmaX: 4.0, sigmaY: 4.0),
           child: Opacity(
-            opacity: 0.7,
+            opacity: 1,
             child: CupertinoTabBar(
+              backgroundColor: Color(0x125E5D5D),
+              inactiveColor: Color(0x125E5D5D),
+              activeColor: Color(0x125E5D5D),
+
+
               items: const <BottomNavigationBarItem>[
                 BottomNavigationBarItem(
-                  icon: Icon(Icons.article_outlined,
-                      size: 29, color: Color(0xff121212)),
-                  activeIcon:
-                      Icon(Icons.article, size: 29, color: Color(0xff121212)),
+                  icon: Icon(CupertinoIcons.square_list, size: 24, color: Color.fromRGBO(174, 174, 178, 1.0)),
+                  activeIcon: Icon(CupertinoIcons.square_list, size: 24, color: Color.fromRGBO(0, 122, 255, 1.0)),
                 ),
                 BottomNavigationBarItem(
-                  icon: Icon(Icons.assessment_outlined,
-                      size: 29, color: Color(0xff121212)),
-                  activeIcon: Icon(Icons.assessment,
-                      size: 29, color: Color(0xff121212)),
+                  icon: Icon(CupertinoIcons.chart_pie, size: 24, color: Color.fromRGBO(174, 174, 178, 1.0)),
+                  activeIcon: Icon(CupertinoIcons.chart_pie, size: 24, color: Color.fromRGBO(0, 122, 255, 1.0)),
                 ),
                 BottomNavigationBarItem(
-                  icon: Icon(Icons.play_circle_outline_rounded,
-                      size: 29, color: Color(0xff121212)),
-                  activeIcon: Icon(Icons.play_circle_fill_rounded,
-                      size: 29, color: Color(0xff121212)),
+                  icon: Icon(CupertinoIcons.stopwatch, size: 24, color: Color.fromRGBO(174, 174, 178, 1.0)),
+                  activeIcon: Icon(CupertinoIcons.stopwatch, size: 24, color: Color.fromRGBO(0, 122, 255, 1.0)),
                 ),
                 BottomNavigationBarItem(
-                  icon: Icon(Icons.account_box_outlined,
-                      size: 29, color: Color(0xff121212)),
-                  activeIcon: Icon(Icons.account_box,
-                      size: 29, color: Color(0xff121212)),
+                  icon: Icon(CupertinoIcons.person, size: 24, color: Color.fromRGBO(174, 174, 178, 1.0)),
+                  activeIcon: Icon(CupertinoIcons.person, size: 24, color: Color.fromRGBO(0, 122, 255, 1.0)),
                 ),
               ],
               currentIndex: _currentIndex,
