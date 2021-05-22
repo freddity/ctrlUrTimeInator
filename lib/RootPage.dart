@@ -72,7 +72,6 @@ class _RootPage extends State<RootPage> {
               inactiveColor: Color(0x125E5D5D),
               activeColor: Color(0x125E5D5D),
 
-
               items: const <BottomNavigationBarItem>[
                 BottomNavigationBarItem(
                   icon: Icon(CupertinoIcons.square_list, size: 24, color: Color.fromRGBO(174, 174, 178, 1.0)),

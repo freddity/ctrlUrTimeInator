@@ -1,5 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app/StatisticsOneDay.dart';
+import 'package:flutter_app/StatisticsSevenDay.dart';
+import 'package:flutter_app/StatisticsThirtyDay.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 class StatisticsPage extends StatefulWidget {
@@ -8,14 +11,20 @@ class StatisticsPage extends StatefulWidget {
 }
 
 class _StatisticsPageState extends State<StatisticsPage> {
-  Map<String, double> dataMap = {
-    "Flutter": 5,
-    "React": 3,
-    "Xamarin": 2,
-    "Ionic": 2,
+
+  int _choiceCurrent = 0;
+
+  final _choiceTypes = <int, Widget> {
+    0: Text('1 day'),
+    1: Text('7 days'),
+    2: Text('30 days'),
   };
 
-  int _currentValue;
+  final _choiceContent = <Widget> [
+    StatisticsOneDay(),
+    StatisticsSevenDay(),
+    StatisticsThirtyDay()
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -45,24 +54,26 @@ class _StatisticsPageState extends State<StatisticsPage> {
         ),
         SliverPadding(padding: EdgeInsets.only(top: 20)),
         SliverToBoxAdapter(
-          child: CupertinoSegmentedControl(
-            children: <int, Widget>{
-              0: Text("One"),
-              1: Text("Two"),
-              2: Text("Three"),
+          child: CupertinoSegmentedControl<int>(
+            children: _choiceTypes,
+            onValueChanged: (value) {
+              setState(() {
+                _choiceCurrent = value;
+              });
             },
-            onValueChanged: (newValue) {
-              _currentValue = newValue;
-            },
-            groupValue: _currentValue,
+            groupValue: _choiceCurrent,
           ),
         ),
         SliverToBoxAdapter(
-          child: SfCircularChart(
-            tooltipBehavior: TooltipBehavior(enable: true),
+          child: Container(
+              height: 300,
+              child: _choiceContent[_choiceCurrent],
+              color: Colors.red,
           ),
-        ),
-        SliverPadding(padding: EdgeInsets.only(top: 125))
+        )
+        /*SliverToBoxAdapter(
+          child: ,
+        ),*/
       ],
     ));
   }
