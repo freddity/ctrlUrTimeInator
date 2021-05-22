@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:syncfusion_flutter_charts/charts.dart';
 
 class StopwatchPage extends StatefulWidget {
 
@@ -10,21 +11,42 @@ class _StopwatchPageState extends State<StopwatchPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        elevation: 0,
-        centerTitle: true,
-        backgroundColor: Colors.white10,
-        title: Text("Stopwatch", style: TextStyle(
-            fontWeight: FontWeight.bold,
-            color: Color(0xff3A3A3A),
-            fontSize: 17.5,
-            letterSpacing: 0.1)
-        ),
+    return SafeArea(
+        child: Scaffold(
+          body: SfCircularChart(
+          series: <CircularSeries>[
+            PieSeries<GDPData, String>(
+              dataSource: getChartData(),
+              xValueMapper: (GDPData data, _) => data.continent,
+              yValueMapper: (GDPData data, _) => data.gdp,
+              dataLabelSettings: DataLabelSettings(
+                isVisible: true, labelPosition:
+                ChartDataLabelPosition.outside
+              ),
+              enableTooltip: true,
+              enableSmartLabels: true,
+              explode: true,
+            )
+          ],
       ),
-      body: Center(
-        child: Text("It's stopwatch page"),
-      ),
-    );
+    ));
   }
+
+  List<GDPData> getChartData() {
+    final List<GDPData> chartData = [
+      GDPData('Oceania', 5),
+      GDPData('Africa', 200),
+      GDPData('S America', 500),
+      GDPData('Europe', 40),
+      GDPData('N America', 50),
+      GDPData('Asia', 70)
+    ];
+    return chartData;
+  }
+}
+
+class GDPData {
+  GDPData(this.continent, this.gdp);
+  final String continent;
+  final int gdp;
 }
