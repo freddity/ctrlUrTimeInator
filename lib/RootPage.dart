@@ -29,14 +29,16 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return CupertinoApp(
       title: "ctrlUrTimeInator",
-      theme: ThemeData(
-          fontFamily: 'Roboto',
-          primaryColor: Color(0xffEFEEF3),
-          //0x3bfaf6f3 better but cannot set other alpha in primary color
-          accentColor: Color(0xffEFEEF3)),
       home: RootPage(title: 'ctrlUrTimeInator'),
+      theme: CupertinoThemeData(
+        primaryColor: Color(0xfffafafa),
+        primaryContrastingColor: Color(0xfffafafa),
+        barBackgroundColor: Color(0xfffafafa),
+        textTheme: CupertinoTextThemeData(),
+        scaffoldBackgroundColor: Color(0xfffafafa)
+      ),
     );
   }
 }
