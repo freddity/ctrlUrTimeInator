@@ -14,11 +14,11 @@ class _StatisticsThirtyDay extends State<StatisticsThirtyDay> {
         SfCircularChart(
           centerY: '120',
           series: <CircularSeries>[
-            PieSeries<GDPData, String>(
+            PieSeries<ChartData, String>(
               dataSource: getChartData(),
-              xValueMapper: (GDPData data, _) => data.continent,
-              yValueMapper: (GDPData data, _) => data.gdp,
-              dataLabelMapper: (GDPData data, _) => data.continent,
+              xValueMapper: (ChartData data, _) => data.title,
+              yValueMapper: (ChartData data, _) => data.value,
+              dataLabelMapper: (ChartData data, _) => data.title,
               dataLabelSettings: DataLabelSettings(
                 isVisible: true,
                 labelPosition: ChartDataLabelPosition.outside,
@@ -36,22 +36,22 @@ class _StatisticsThirtyDay extends State<StatisticsThirtyDay> {
     );
   }
 
-  List<GDPData> getChartData() {
-    final List<GDPData> chartData = [
-      GDPData('Oceania', 50),
-      GDPData('Africa', 45),
-      GDPData('S America', 54),
-      GDPData('Europe', 7),
-      GDPData('N America', 78),
-      GDPData('Asia', 14)
+  List<ChartData> getChartData() {
+    final List<ChartData> chartData = [
+      ChartData('Oceania', 50),
+      ChartData('Africa', 45),
+      ChartData('S America', 54),
+      ChartData('Europe', 7),
+      ChartData('N America', 78),
+      ChartData('Asia', 14)
     ];
     return chartData;
   }
 }
 
-class GDPData {
-  GDPData(this.continent, this.gdp);
+class ChartData {
+  ChartData(this.title, this.value);
 
-  final String continent;
-  final int gdp;
+  final String title;
+  final int value;
 }
