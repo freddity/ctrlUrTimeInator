@@ -10,6 +10,7 @@ import 'ProfilePage.dart';
 import 'StatisticsPage.dart';
 import 'StopwatchPage.dart';
 
+
 void main() {
   runApp(MyApp());
   SystemChrome.setSystemUIOverlayStyle(

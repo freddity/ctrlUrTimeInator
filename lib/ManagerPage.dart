@@ -3,13 +3,24 @@ import 'package:flutter/material.dart';
 
 class ManagerPage extends StatefulWidget {
   @override
-  _ManagerPageState createState() => _ManagerPageState();
+  _ManagerPageState createState() {
+    return managerPageState;
+  }
 
-  @override
-  StatelessWidget get widget => throw UnimplementedError();
+    @override
+    StatelessWidget get widget => throw UnimplementedError();
 }
 
-class _ManagerPageState extends State<ManagerPage> {
+_ManagerPageState managerPageState = _ManagerPageState();
+double scrollValue = 0;
+
+class _ManagerPageState extends State<ManagerPage> with TickerProviderStateMixin {
+
+  @override
+  void initState() {
+    managerPageState = this;
+  }
+
   List<Icon> _leading = [
     Icon(Icons.edit_outlined, size: 20, color: Color(0xff808080)),
     Icon(Icons.gamepad_outlined, size: 20, color: Color(0xff808080)),
@@ -41,16 +52,18 @@ class _ManagerPageState extends State<ManagerPage> {
   ];
 
   Icon _trailing =
-      Icon(Icons.arrow_forward_ios, size: 15, color: Color(0xffdbdbdb));
+  Icon(Icons.arrow_forward_ios, size: 15, color: Color(0xffdbdbdb));
   Color _color = Color(0xffffffff);
 
   @override
   Widget build(BuildContext context) {
+    managerPageState = this;
     return Scaffold(
       body: NotificationListener(
         onNotification: (scrollNotification) {
           if (scrollNotification is ScrollUpdateNotification) {
             print(scrollNotification.metrics.extentBefore);
+            scrollValue = scrollNotification.metrics.extentBefore;
           }
           return null;
         },
@@ -62,19 +75,28 @@ class _ManagerPageState extends State<ManagerPage> {
               pinned: true,
               floating: false,
             ),
-            SliverPadding(padding: EdgeInsets.only(top: 20)),
+
             SliverToBoxAdapter(
-              child: Text('Manager'),
+              child: Container(
+                padding: EdgeInsets.only(left: 15),
+                child: Text("Manager",
+                    style: TextStyle(
+                        fontSize: 34,
+                        fontWeight: FontWeight.bold,
+                        color: Color.fromRGBO(28, 28, 30, 1.0),
+                        letterSpacing: 0.1)),
+              ),
             ),
+            SliverPadding(padding: EdgeInsets.only(top: 20)),
             SliverList(
               delegate: SliverChildBuilderDelegate(
-                (context, index) {
+                    (context, index) {
                   return Card(
                     margin: EdgeInsets.only(bottom: 10.0, left: 10, right: 10),
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(5.0)),
                     child:
-                        Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
+                    Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
                       Container(
                         decoration: BoxDecoration(
                             color: Color(0xffffffff),
@@ -116,26 +138,60 @@ class _ManagerPageState extends State<ManagerPage> {
   }
 }
 
-class CustomCupertinoSliverNavigationBar
-    extends SliverPersistentHeaderDelegate {
+class CustomCupertinoSliverNavigationBar extends SliverPersistentHeaderDelegate {
+
   @override
-  Widget build(
-      BuildContext context, double shrinkOffset, bool overlapsContent) {
+  Widget build(BuildContext context, double shrinkOffset, bool overlapsContent) {
+
+    final AnimationController _controller = AnimationController(
+      duration: const Duration(milliseconds: 3000),
+      vsync: managerPageState,
+    )..addListener(() {
+
+    });
+
+    final Animation<double> _animation = CurvedAnimation(
+      parent: _controller,
+      curve: Curves.easeIn,
+    );
+
     return CupertinoNavigationBar(
-      trailing: IconButton(
-        icon: Icon(
-          CupertinoIcons.add,
-          color: Colors.black,
-          size: 25.0,
+        border: scrollValue <= 40 ? null : Border(bottom: BorderSide(
+            width: 0.5, color: Color.fromRGBO(142, 142, 147, 1))),
+        leading: CupertinoButton(
+          child: Container(
+            //padding: EdgeInsets.only(top: ),
+            child: Text('Edit', style: TextStyle(
+              fontSize: 15.5,
+              color: Color.fromRGBO(0, 122, 255, 1.0)
+            )),
+          ),
         ),
-      ),
-      middle: Text(
-        'Manager',
-        style: TextStyle(
-          fontSize: 15.5,
-          color: Colors.grey
+        trailing: IconButton(
+          icon: Icon(
+            CupertinoIcons.add,
+            color: Colors.black,
+            size: 25.0,
+          ),
         ),
-      ),
+        middle: new AnimatedCrossFade(
+            firstChild: Text(
+              'Manager',
+              style: TextStyle(
+                fontSize: 15.5,
+                color: Color.fromRGBO(28, 28, 30, 0),
+              ),
+            ),
+            secondChild: Text(
+              'Manager',
+              style: TextStyle(
+                fontSize: 15.5,
+                color: Color.fromRGBO(28, 28, 30, 1),
+              ),
+            ),
+            crossFadeState: scrollValue <= 40 ? CrossFadeState.showFirst : CrossFadeState.showSecond,
+            duration: Duration(milliseconds: 120)),
+
     );
   }
 
