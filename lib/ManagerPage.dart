@@ -75,7 +75,7 @@ class _ManagerPageState extends State<ManagerPage> with TickerProviderStateMixin
               pinned: true,
               floating: false,
             ),
-
+            SliverPadding(padding: EdgeInsets.only(top: 11)),
             SliverToBoxAdapter(
               child: Container(
                 padding: EdgeInsets.only(left: 15),
@@ -130,7 +130,7 @@ class _ManagerPageState extends State<ManagerPage> with TickerProviderStateMixin
                 childCount: 10,
               ),
             ),
-            SliverPadding(padding: EdgeInsets.only(top: 125))
+            SliverPadding(padding: EdgeInsets.only(top: 77))
           ],
         ),
       ),
@@ -156,22 +156,21 @@ class CustomCupertinoSliverNavigationBar extends SliverPersistentHeaderDelegate 
     );
 
     return CupertinoNavigationBar(
+        backgroundColor: Color(0x98fafafa),
         border: scrollValue <= 40 ? null : Border(bottom: BorderSide(
-            width: 0.5, color: Color.fromRGBO(142, 142, 147, 1))),
-        leading: CupertinoButton(
-          child: Container(
-            //padding: EdgeInsets.only(top: ),
-            child: Text('Edit', style: TextStyle(
-              fontSize: 15.5,
-              color: Color.fromRGBO(0, 122, 255, 1.0)
-            )),
-          ),
+            width: 0.5, color: Color.fromRGBO(142, 142, 147, 0.12))),
+        leading: Container(
+          padding: EdgeInsets.only(top: 11, left: 10),
+          child: Text('Edit', style: TextStyle(
+            fontSize: 16,
+            color: Color.fromRGBO(0, 122, 255, 1.0)
+          )),
         ),
         trailing: IconButton(
           icon: Icon(
             CupertinoIcons.add,
-            color: Colors.black,
-            size: 25.0,
+            color: Color.fromRGBO(0, 122, 255, 1.0),
+            size: 27.0,
           ),
         ),
         middle: new AnimatedCrossFade(
