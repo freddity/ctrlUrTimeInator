@@ -2,8 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class ManagerPage extends StatefulWidget {
+
   @override
   _ManagerPageState createState() {
+    managerPageState = _ManagerPageState();
     return managerPageState;
   }
 
@@ -11,7 +13,7 @@ class ManagerPage extends StatefulWidget {
     StatelessWidget get widget => throw UnimplementedError();
 }
 
-_ManagerPageState managerPageState = _ManagerPageState();
+_ManagerPageState managerPageState;
 double scrollValue = 0;
 
 class _ManagerPageState extends State<ManagerPage> with TickerProviderStateMixin {
@@ -92,22 +94,12 @@ class _ManagerPageState extends State<ManagerPage> with TickerProviderStateMixin
               delegate: SliverChildBuilderDelegate(
                     (context, index) {
                   return Card(
-                    margin: EdgeInsets.only(bottom: 10.0, left: 10, right: 10),
+                    margin: EdgeInsets.only(bottom: 10.0, left: 15, right: 15),
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(5.0)),
                     child:
                     Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
                       Container(
-                        decoration: BoxDecoration(
-                            color: Color(0xffffffff),
-                            borderRadius: BorderRadius.circular(5.0),
-                            boxShadow: [
-                              BoxShadow(
-                                  blurRadius: 8,
-                                  offset: Offset(0, 0),
-                                  color: Color(0xffE9E8EB).withOpacity(0.3),
-                                  spreadRadius: -9)
-                            ]),
                         child: ListTile(
                           leading: Container(
                             child: _leading[index],
@@ -157,40 +149,42 @@ class CustomCupertinoSliverNavigationBar extends SliverPersistentHeaderDelegate 
 
     return CupertinoNavigationBar(
         backgroundColor: Color(0x98fafafa),
-        border: scrollValue <= 40 ? null : Border(bottom: BorderSide(
+        border: scrollValue <= 50 ? null : Border(bottom: BorderSide(
             width: 0.5, color: Color.fromRGBO(142, 142, 147, 0.12))),
         leading: Container(
-          padding: EdgeInsets.only(top: 11, left: 10),
+          padding: EdgeInsets.only(top: 11),
           child: Text('Edit', style: TextStyle(
             fontSize: 16,
             color: Color.fromRGBO(0, 122, 255, 1.0)
           )),
         ),
+      middle: new AnimatedCrossFade(
+        firstChild: Text(
+          'Manager',
+          style: TextStyle(
+            fontSize: 17,
+            color: Color.fromRGBO(28, 28, 30, 0),
+          ),
+        ),
+        secondChild: Text(
+          'Manager',
+          style: TextStyle(
+            fontSize: 17,
+            color: Color.fromRGBO(28, 28, 30, 1),
+          ),
+        ),
+        crossFadeState: scrollValue <= 50 ? CrossFadeState.showFirst : CrossFadeState.showSecond,
+        duration: Duration(milliseconds: 120)),
+
         trailing: IconButton(
+          onPressed: () {print('CLICKED');},
+          padding: new EdgeInsets.only(left: 30, bottom: 5),
           icon: Icon(
             CupertinoIcons.add,
             color: Color.fromRGBO(0, 122, 255, 1.0),
             size: 27.0,
           ),
         ),
-        middle: new AnimatedCrossFade(
-            firstChild: Text(
-              'Manager',
-              style: TextStyle(
-                fontSize: 15.5,
-                color: Color.fromRGBO(28, 28, 30, 0),
-              ),
-            ),
-            secondChild: Text(
-              'Manager',
-              style: TextStyle(
-                fontSize: 15.5,
-                color: Color.fromRGBO(28, 28, 30, 1),
-              ),
-            ),
-            crossFadeState: scrollValue <= 40 ? CrossFadeState.showFirst : CrossFadeState.showSecond,
-            duration: Duration(milliseconds: 120)),
-
     );
   }
 
