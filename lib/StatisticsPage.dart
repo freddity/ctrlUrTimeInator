@@ -7,10 +7,16 @@ import 'package:syncfusion_flutter_charts/charts.dart';
 
 class StatisticsPage extends StatefulWidget {
   @override
-  _StatisticsPageState createState() => _StatisticsPageState();
+  _StatisticsPageState createState() {
+    _statisticsPageState = _StatisticsPageState();
+    return _statisticsPageState;
+  }
 }
 
-class _StatisticsPageState extends State<StatisticsPage> {
+_StatisticsPageState _statisticsPageState;
+double scrollValue = 0;
+
+class _StatisticsPageState extends State<StatisticsPage> with TickerProviderStateMixin {
 
   int _choiceCurrent = 0;
 
@@ -28,53 +34,133 @@ class _StatisticsPageState extends State<StatisticsPage> {
 
   @override
   Widget build(BuildContext context) {
+    _statisticsPageState = this;
     return Scaffold(
-        body: CustomScrollView(
-      slivers: [
-        CupertinoSliverNavigationBar(
-          border: null,
-          //backgroundColor: Color(0x125E5D5D),
-          brightness: Brightness.light,
-          trailing: IconButton(
-            //onPressed: ,
-            icon: Container(
-              margin: EdgeInsets.only(top: 0),
-              child: Icon(
-                CupertinoIcons.ellipsis_circle,
-                color: Color.fromRGBO(0, 122, 255, 1.0),
-                size: 24,
+      body: NotificationListener(
+        onNotification: (scrollNotification) {
+          if (scrollNotification is ScrollUpdateNotification) {
+            print(scrollNotification.metrics.extentBefore);
+            scrollValue = scrollNotification.metrics.extentBefore;
+          }
+          return null;
+        },
+        child: CustomScrollView(
+
+          slivers: [
+            SliverPersistentHeader(
+              delegate: CustomCupertinoSliverNavigationBar(),
+              pinned: true,
+              floating: false,
+            ),
+            SliverPadding(padding: EdgeInsets.only(top: 11)),
+            SliverToBoxAdapter(
+              child: Container(
+                padding: EdgeInsets.only(left: 15),
+                child: Text("Manager",
+                    style: TextStyle(
+                        fontSize: 34,
+                        fontWeight: FontWeight.bold,
+                        color: Color.fromRGBO(28, 28, 30, 1.0),
+                        letterSpacing: 0.1)),
               ),
             ),
-          ),
-          largeTitle: Text("Statistics",
-              style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  color: Color(0xff040406),
-                  letterSpacing: 0.1)),
+            SliverPadding(padding: EdgeInsets.only(top: 20)),
+            SliverToBoxAdapter(
+              child: CupertinoSegmentedControl<int>(
+                children: _choiceTypes,
+                onValueChanged: (value) {
+                  setState(() {
+                    _choiceCurrent = value;
+                  });
+                },
+                groupValue: _choiceCurrent,
+              ),
+            ),
+            SliverToBoxAdapter(
+              child: Container(
+                height: 300,
+                child: _choiceContent[_choiceCurrent],
+                color: Colors.red,
+              ),
+            )
+          ],
         ),
-        SliverPadding(padding: EdgeInsets.only(top: 20)),
-        SliverToBoxAdapter(
-          child: CupertinoSegmentedControl<int>(
-            children: _choiceTypes,
-            onValueChanged: (value) {
-              setState(() {
-                _choiceCurrent = value;
-              });
-            },
-            groupValue: _choiceCurrent,
+      ),
+    );
+  }
+}
+
+class CustomCupertinoSliverNavigationBar extends SliverPersistentHeaderDelegate {
+
+  @override
+  Widget build(BuildContext context, double shrinkOffset, bool overlapsContent) {
+
+    final AnimationController _controller = AnimationController(
+      duration: const Duration(milliseconds: 3000),
+      vsync: _statisticsPageState,
+    )..addListener(() {
+
+    });
+
+    final Animation<double> _animation = CurvedAnimation(
+      parent: _controller,
+      curve: Curves.easeIn,
+    );
+
+    return CupertinoNavigationBar(
+      backgroundColor: Color(0x98fafafa),
+      border: scrollValue <= 50 ? null : Border(bottom: BorderSide(
+          width: 0.5, color: Color.fromRGBO(142, 142, 147, 0.12))),
+      leading: Container(
+        padding: EdgeInsets.only(top: 11),
+        child: Text('Edit', style: TextStyle(
+            fontSize: 16,
+            color: Color.fromRGBO(0, 122, 255, 1.0)
+        )),
+      ),
+      middle: new AnimatedCrossFade(
+          firstChild: Text(
+            'Manager',
+            style: TextStyle(
+              fontSize: 17,
+              color: Color.fromRGBO(28, 28, 30, 0),
+            ),
           ),
+          secondChild: Text(
+            'Manager',
+            style: TextStyle(
+              fontSize: 17,
+              color: Color.fromRGBO(28, 28, 30, 1),
+            ),
+          ),
+          crossFadeState: scrollValue <= 50 ? CrossFadeState.showFirst : CrossFadeState.showSecond,
+          duration: Duration(milliseconds: 120)),
+
+      trailing: IconButton(
+        onPressed: () {print('CLICKED');},
+        padding: new EdgeInsets.only(left: 30, bottom: 5),
+        icon: Icon(
+          CupertinoIcons.add,
+          color: Color.fromRGBO(0, 122, 255, 1.0),
+          size: 27.0,
         ),
-        SliverToBoxAdapter(
-          child: Container(
-              height: 300,
-              child: _choiceContent[_choiceCurrent],
-              color: Colors.red,
-          ),
-        )
-        /*SliverToBoxAdapter(
-          child: ,
-        ),*/
-      ],
-    ));
+      ),
+    );
+  }
+
+  @override
+  double get maxExtent => 70.0;
+
+  @override
+  double get minExtent => 70.0;
+
+  @override
+  bool shouldRebuild(covariant SliverPersistentHeaderDelegate oldDelegate) {
+    if (oldDelegate.minExtent != this.minExtent ||
+        oldDelegate.maxExtent != this.maxExtent ||
+        oldDelegate.snapConfiguration != this.snapConfiguration) {
+      return true;
+    }
+    return true; //temporary, change to false
   }
 }

@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
       title: "ctrlUrTimeInator",
       home: RootPage(title: 'ctrlUrTimeInator'),
       theme: CupertinoThemeData(
-        primaryColor: Color(0xfffafafa),
+        //primaryColor: Color(0xfffafafa), //statistics top will be black when enable
         primaryContrastingColor: Color(0xfffafafa),
         barBackgroundColor: Color(0xfffafafa),
         textTheme: CupertinoTextThemeData(),
