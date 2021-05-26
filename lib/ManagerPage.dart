@@ -176,14 +176,10 @@ class CustomCupertinoSliverNavigationBar extends SliverPersistentHeaderDelegate 
         crossFadeState: scrollValue <= 50 ? CrossFadeState.showFirst : CrossFadeState.showSecond,
         duration: Duration(milliseconds: 120)),
 
-        trailing: IconButton(
-          onPressed: () {print('CLICKED');},
-          padding: new EdgeInsets.only(left: 30, bottom: 5),
-          icon: Icon(
-            CupertinoIcons.add,
-            color: Color.fromRGBO(0, 122, 255, 1.0),
-            size: 27.0,
-          ),
+        trailing: Icon(
+          CupertinoIcons.add,
+          color: Color.fromRGBO(0, 122, 255, 1.0),
+          size: 27.0,
         ),
     );
   }

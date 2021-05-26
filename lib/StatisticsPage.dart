@@ -56,7 +56,7 @@ class _StatisticsPageState extends State<StatisticsPage> with TickerProviderStat
             SliverToBoxAdapter(
               child: Container(
                 padding: EdgeInsets.only(left: 15),
-                child: Text("Manager",
+                child: Text("Statistics",
                     style: TextStyle(
                         fontSize: 34,
                         fontWeight: FontWeight.bold,
@@ -83,6 +83,7 @@ class _StatisticsPageState extends State<StatisticsPage> with TickerProviderStat
                 color: Colors.red,
               ),
             )
+
           ],
         ),
       ),
@@ -111,23 +112,23 @@ class CustomCupertinoSliverNavigationBar extends SliverPersistentHeaderDelegate 
       backgroundColor: Color(0x98fafafa),
       border: scrollValue <= 50 ? null : Border(bottom: BorderSide(
           width: 0.5, color: Color.fromRGBO(142, 142, 147, 0.12))),
-      leading: Container(
+      /*leading: Container(
         padding: EdgeInsets.only(top: 11),
         child: Text('Edit', style: TextStyle(
             fontSize: 16,
             color: Color.fromRGBO(0, 122, 255, 1.0)
         )),
-      ),
+      ),*/
       middle: new AnimatedCrossFade(
           firstChild: Text(
-            'Manager',
+            'Statistics',
             style: TextStyle(
               fontSize: 17,
               color: Color.fromRGBO(28, 28, 30, 0),
             ),
           ),
           secondChild: Text(
-            'Manager',
+            'Statistics',
             style: TextStyle(
               fontSize: 17,
               color: Color.fromRGBO(28, 28, 30, 1),
@@ -136,7 +137,7 @@ class CustomCupertinoSliverNavigationBar extends SliverPersistentHeaderDelegate 
           crossFadeState: scrollValue <= 50 ? CrossFadeState.showFirst : CrossFadeState.showSecond,
           duration: Duration(milliseconds: 120)),
 
-      trailing: IconButton(
+      /*trailing: IconButton(
         onPressed: () {print('CLICKED');},
         padding: new EdgeInsets.only(left: 30, bottom: 5),
         icon: Icon(
@@ -144,7 +145,7 @@ class CustomCupertinoSliverNavigationBar extends SliverPersistentHeaderDelegate 
           color: Color.fromRGBO(0, 122, 255, 1.0),
           size: 27.0,
         ),
-      ),
+      ),*/
     );
   }
 
