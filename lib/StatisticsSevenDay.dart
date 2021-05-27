@@ -9,6 +9,8 @@ class StatisticsSevenDay extends StatefulWidget {
 class _StatisticsSevenDay extends State<StatisticsSevenDay> {
   @override
   Widget build(BuildContext context) {
+    double _percentsPoints = 0;
+
     return Scaffold(
       body: SfCircularChart(
         margin: EdgeInsets.zero,
@@ -19,29 +21,44 @@ class _StatisticsSevenDay extends State<StatisticsSevenDay> {
             xValueMapper: (ChartData data, _) => data.title,
             yValueMapper: (ChartData data, _) => data.value,
             pointColorMapper: (ChartData data, _) => data.color,
-            dataLabelMapper: (ChartData data, _) => data.title,
+            dataLabelMapper: (ChartData data, _) {
+              _percentsPoints += data.value;
+
+              String _percentsFirst = '${data.value}% ${data.title}';
+              String _nameFirst = '${data.title} ${data.value}%';
+
+              print(_percentsPoints);
+              if (_percentsPoints > 50) {
+                if (_percentsPoints - (data.value / 2) < 50) {
+                  return _percentsFirst;
+                } else {
+                  return _nameFirst;
+                }
+              } else {
+                return _percentsFirst;
+              }
+            },
             dataLabelSettings: DataLabelSettings(
-              textStyle: TextStyle(color: Color.fromRGBO(44, 44, 46, 1), fontSize: 10),
+              textStyle:
+              TextStyle(color: Color.fromRGBO(44, 44, 46, 1), fontSize: 10),
               isVisible: true,
               labelPosition: ChartDataLabelPosition.outside,
               showCumulativeValues: true,
               connectorLineSettings: ConnectorLineSettings(
                   width: 0.5,
                   color: Color(0x8a7f7f7f),
-                  type: ConnectorType.curve
-              ),
+                  type: ConnectorType.curve),
             ),
             enableTooltip: true,
             enableSmartLabels: true,
-            explode: true,
+            explode: false,
             animationDuration: 350,
-            radius: '70%',
+            radius: '65%',
             selectionBehavior: SelectionBehavior(
                 enable: true,
                 unselectedOpacity: 0.3,
                 unselectedBorderWidth: 0.1,
-                unselectedBorderColor: Colors.black
-            ),
+                unselectedBorderColor: Colors.black),
           )
         ],
       ),
@@ -51,12 +68,12 @@ class _StatisticsSevenDay extends State<StatisticsSevenDay> {
 
 List<ChartData> getChartData() {
   final List<ChartData> chartData = [
-    ChartData('Drawing', 5, Color.fromRGBO(49, 152, 252, 1.0)),
-    ChartData('Gaming', 200, Color.fromRGBO(58, 206, 94, 1.0)),
-    ChartData('School', 500, Color.fromRGBO(117, 115, 231, 1.0)),
-    ChartData('Work', 40, Color.fromRGBO(250, 173, 57, 1.0)),
-    ChartData('Running', 50, Color.fromRGBO(248, 88, 120, 1.0)),
-    ChartData('Learning Norwegian', 70, Color.fromRGBO(196, 111, 238, 1.0))
+    ChartData('Drawing', 25, Color.fromRGBO(49, 152, 252, 1.0)),
+    ChartData('Gaming', 5, Color.fromRGBO(58, 206, 94, 1.0)),
+    ChartData('School', 20, Color.fromRGBO(117, 115, 231, 1.0)),
+    ChartData('Work', 7, Color.fromRGBO(250, 173, 57, 1.0)),
+    ChartData('Running', 33, Color.fromRGBO(248, 88, 120, 1.0)),
+    ChartData('Learning Norwegian', 10, Color.fromRGBO(196, 111, 238, 1.0))
   ];
   return chartData;
 }
