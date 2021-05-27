@@ -6,11 +6,19 @@ class StatisticsOneDay extends StatefulWidget {
   _StatisticsOneDay createState() => _StatisticsOneDay();
 }
 
+GlobalKey _globalKey = GlobalKey();
+
 class _StatisticsOneDay extends State<StatisticsOneDay> {
+
   @override
   Widget build(BuildContext context) {
+
+    RenderBox rb = context.findRenderObject() as RenderBox;
+    print('${rb?.size ?? Size.zero}');
+
     return Scaffold(
       body: SfCircularChart(
+        key: _globalKey,
         margin: EdgeInsets.zero,
         centerY: '120',
         series: <DoughnutSeries>[
@@ -25,14 +33,17 @@ class _StatisticsOneDay extends State<StatisticsOneDay> {
               isVisible: true,
               labelPosition: ChartDataLabelPosition.outside,
               showCumulativeValues: true,
-              connectorLineSettings:
-              ConnectorLineSettings(width: 0.5, color: Color(0x8a7f7f7f)),
+              connectorLineSettings: ConnectorLineSettings(
+                width: 0.5,
+                color: Color(0x8a7f7f7f),
+                type: ConnectorType.curve,
+                length: '15',
+              ),
             ),
-            enableTooltip: true,
             enableSmartLabels: true,
             explode: true,
             animationDuration: 350,
-            radius: '60%',
+            radius: '70%',
             selectionBehavior: SelectionBehavior(
                 enable: true,
                 unselectedOpacity: 0.3,

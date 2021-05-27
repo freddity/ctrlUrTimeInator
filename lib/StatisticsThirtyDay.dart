@@ -25,14 +25,17 @@ class _StatisticsThirtyDay extends State<StatisticsThirtyDay> {
               isVisible: true,
               labelPosition: ChartDataLabelPosition.outside,
               showCumulativeValues: true,
-              connectorLineSettings:
-              ConnectorLineSettings(width: 0.5, color: Color(0x8a7f7f7f)),
+              connectorLineSettings: ConnectorLineSettings(
+                  width: 0.5,
+                  color: Color(0x8a7f7f7f),
+                  type: ConnectorType.curve
+              ),
             ),
             enableTooltip: true,
             enableSmartLabels: true,
             explode: true,
             animationDuration: 350,
-            radius: '60%',
+            radius: '70%',
             selectionBehavior: SelectionBehavior(
                 enable: true,
                 unselectedOpacity: 0.3,

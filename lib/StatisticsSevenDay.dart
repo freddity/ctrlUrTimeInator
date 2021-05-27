@@ -21,19 +21,21 @@ class _StatisticsSevenDay extends State<StatisticsSevenDay> {
             pointColorMapper: (ChartData data, _) => data.color,
             dataLabelMapper: (ChartData data, _) => data.title,
             dataLabelSettings: DataLabelSettings(
-              textStyle: TextStyle(
-                  color: Color.fromRGBO(44, 44, 46, 1), fontSize: 10),
+              textStyle: TextStyle(color: Color.fromRGBO(44, 44, 46, 1), fontSize: 10),
               isVisible: true,
               labelPosition: ChartDataLabelPosition.outside,
               showCumulativeValues: true,
-              connectorLineSettings:
-              ConnectorLineSettings(width: 0.5, color: Color(0x8a7f7f7f)),
+              connectorLineSettings: ConnectorLineSettings(
+                  width: 0.5,
+                  color: Color(0x8a7f7f7f),
+                  type: ConnectorType.curve
+              ),
             ),
             enableTooltip: true,
             enableSmartLabels: true,
             explode: true,
             animationDuration: 350,
-            radius: '60%',
+            radius: '70%',
             selectionBehavior: SelectionBehavior(
                 enable: true,
                 unselectedOpacity: 0.3,
