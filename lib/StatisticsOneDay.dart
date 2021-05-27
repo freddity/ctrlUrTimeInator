@@ -10,29 +10,28 @@ class _StatisticsOneDay extends State<StatisticsOneDay> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(children: [
-        SfCircularChart(
-          centerY: '120',
-          series: <CircularSeries>[
-            PieSeries<GDPData, String>(
-              dataSource: getChartData(),
-              xValueMapper: (GDPData data, _) => data.continent,
-              yValueMapper: (GDPData data, _) => data.gdp,
-              dataLabelMapper: (GDPData data, _) => data.continent,
-              dataLabelSettings: DataLabelSettings(
-                isVisible: true,
-                labelPosition: ChartDataLabelPosition.outside,
-                showCumulativeValues: true,
-              ),
-              enableTooltip: true,
-              enableSmartLabels: true,
-              explode: true,
-              animationDuration: 350,
-              radius: '60%',
-            )
-          ],
-        )
-      ]),
+      body: SfCircularChart(
+        margin: EdgeInsets.zero,
+        centerY: '120',
+        series: <CircularSeries>[
+          PieSeries<GDPData, String>(
+            dataSource: getChartData(),
+            xValueMapper: (GDPData data, _) => data.continent,
+            yValueMapper: (GDPData data, _) => data.gdp,
+            dataLabelMapper: (GDPData data, _) => data.continent,
+            dataLabelSettings: DataLabelSettings(
+              isVisible: true,
+              labelPosition: ChartDataLabelPosition.outside,
+              showCumulativeValues: true,
+            ),
+            enableTooltip: true,
+            enableSmartLabels: true,
+            explode: true,
+            animationDuration: 350,
+            radius: '60%',
+          )
+        ],
+      ),
     );
   }
 

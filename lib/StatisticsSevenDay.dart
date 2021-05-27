@@ -10,48 +10,47 @@ class _StatisticsSevenDay extends State<StatisticsSevenDay> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(children: [
-        SfCircularChart(
-          centerY: '120',
-          series: <CircularSeries>[
-            PieSeries<GDPData, String>(
-              dataSource: getChartData(),
-              xValueMapper: (GDPData data, _) => data.continent,
-              yValueMapper: (GDPData data, _) => data.gdp,
-              dataLabelMapper: (GDPData data, _) => data.continent,
-              dataLabelSettings: DataLabelSettings(
-                isVisible: true,
-                labelPosition: ChartDataLabelPosition.outside,
-                showCumulativeValues: true,
-              ),
-              enableTooltip: true,
-              enableSmartLabels: true,
-              explode: true,
-              animationDuration: 350,
-              radius: '60%',
-            )
-          ],
-        )
-      ]),
+      body: SfCircularChart(
+        margin: EdgeInsets.zero,
+        centerY: '120',
+        series: <CircularSeries>[
+          PieSeries<ChartData, String>(
+            dataSource: getChartData(),
+            xValueMapper: (ChartData data, _) => data.title,
+            yValueMapper: (ChartData data, _) => data.value,
+            dataLabelMapper: (ChartData data, _) => data.title,
+            dataLabelSettings: DataLabelSettings(
+              isVisible: true,
+              labelPosition: ChartDataLabelPosition.outside,
+              showCumulativeValues: true,
+            ),
+            enableTooltip: true,
+            enableSmartLabels: true,
+            explode: true,
+            animationDuration: 350,
+            radius: '60%',
+          )
+        ],
+      ),
     );
   }
 
-  List<GDPData> getChartData() {
-    final List<GDPData> chartData = [
-      GDPData('Oceania', 5),
-      GDPData('Africa', 200),
-      GDPData('S America', 500),
-      GDPData('Europe', 40),
-      GDPData('N America', 50),
-      GDPData('Asia', 70)
+  List<ChartData> getChartData() {
+    final List<ChartData> chartData = [
+      ChartData('Oceania', 5),
+      ChartData('Africa', 200),
+      ChartData('S America', 500),
+      ChartData('Europe', 40),
+      ChartData('N America', 50),
+      ChartData('Asia', 70)
     ];
     return chartData;
   }
 }
 
-class GDPData {
-  GDPData(this.continent, this.gdp);
+class ChartData {
+  ChartData(this.title, this.value);
 
-  final String continent;
-  final int gdp;
+  final String title;
+  final int value;
 }

@@ -142,6 +142,50 @@ return Scaffold(
 
 
 
+          SliverPersistentHeader(
+                   delegate: CustomCupertinoSliverNavigationBar(),
+                   pinned: true,
+                   floating: false,
+                 ),
+                 SliverPadding(padding: EdgeInsets.only(top: 11)),
+                 SliverToBoxAdapter(
+                   child: Container(
+                     padding: EdgeInsets.only(left: 15),
+                     child: Text("Statistics",
+                         style: TextStyle(
+                             fontSize: 34,
+                             fontWeight: FontWeight.bold,
+                             color: Color.fromRGBO(28, 28, 30, 1.0),
+                             letterSpacing: 0.1)),
+                   ),
+                 ),
+                 SliverPadding(padding: EdgeInsets.only(top: 20)),
+                 SliverToBoxAdapter(
+                   child: CupertinoSegmentedControl<int>(
+                     children: _choiceTypes,
+                     onValueChanged: (value) {
+                       setState(() {
+                         _choiceCurrent = value;
+                       });
+                     },
+                     groupValue: _choiceCurrent,
+                   ),
+                 ),
+                 SliverToBoxAdapter(
+                   child: Container(
+                     height: 300,
+                     child: _choiceContent[_choiceCurrent],
+                     color: Colors.red,
+                   ),
+                 )
+
+
+
+
+
+
+
+
 
 
 

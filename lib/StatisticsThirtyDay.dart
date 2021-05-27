@@ -10,29 +10,28 @@ class _StatisticsThirtyDay extends State<StatisticsThirtyDay> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(children: [
-        SfCircularChart(
-          centerY: '120',
-          series: <CircularSeries>[
-            PieSeries<ChartData, String>(
-              dataSource: getChartData(),
-              xValueMapper: (ChartData data, _) => data.title,
-              yValueMapper: (ChartData data, _) => data.value,
-              dataLabelMapper: (ChartData data, _) => data.title,
-              dataLabelSettings: DataLabelSettings(
-                isVisible: true,
-                labelPosition: ChartDataLabelPosition.outside,
-                showCumulativeValues: true,
-              ),
-              enableTooltip: true,
-              enableSmartLabels: true,
-              explode: true,
-              animationDuration: 350,
-              radius: '60%',
-            )
-          ],
-        )
-      ]),
+      body: SfCircularChart(
+        margin: EdgeInsets.zero,
+        centerY: '120',
+        series: <CircularSeries>[
+          PieSeries<ChartData, String>(
+            dataSource: getChartData(),
+            xValueMapper: (ChartData data, _) => data.title,
+            yValueMapper: (ChartData data, _) => data.value,
+            dataLabelMapper: (ChartData data, _) => data.title,
+            dataLabelSettings: DataLabelSettings(
+              isVisible: true,
+              labelPosition: ChartDataLabelPosition.outside,
+              showCumulativeValues: true,
+            ),
+            enableTooltip: true,
+            enableSmartLabels: true,
+            explode: true,
+            animationDuration: 350,
+            radius: '60%',
+          )
+        ],
+      ),
     );
   }
 
