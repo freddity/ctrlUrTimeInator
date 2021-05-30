@@ -94,7 +94,7 @@ class _ManagerPageState extends State<ManagerPage> with TickerProviderStateMixin
               delegate: SliverChildBuilderDelegate(
                     (context, index) {
                   return Container(
-                    margin: EdgeInsets.only(bottom: 10.0, left: 15, right: 15),
+                    margin: EdgeInsets.only(bottom: 7.0, left: 15, right: 15),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.all(Radius.circular(5)),
                       color: Color(0xffffffff),
@@ -132,7 +132,7 @@ class _ManagerPageState extends State<ManagerPage> with TickerProviderStateMixin
                 childCount: 10,
               ),
             ),
-            SliverPadding(padding: EdgeInsets.only(top: 77))
+            SliverPadding(padding: EdgeInsets.only(top: 85))
           ],
         ),
       ),

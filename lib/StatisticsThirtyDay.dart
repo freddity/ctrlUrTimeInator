@@ -29,7 +29,7 @@ class _StatisticsThirtyDay extends State<StatisticsThirtyDay> {
           ),
           child: SfCircularChart(
             margin: EdgeInsets.zero,
-            centerY: '110',
+            centerY: '104',
             series: [
               DoughnutSeries<ChartData, String>(
                 dataSource: getChartData(),
@@ -71,7 +71,7 @@ class _StatisticsThirtyDay extends State<StatisticsThirtyDay> {
                 radius: '55%',
 
                 //groupMode: CircularChartGroupMode.point, //will be useful while I'll have more data
-                //groupTo: 6,
+                //groupTo: 4,
 
                 selectionBehavior: SelectionBehavior(
                     enable: true,

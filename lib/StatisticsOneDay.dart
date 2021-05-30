@@ -6,10 +6,7 @@ class StatisticsOneDay extends StatefulWidget {
   _StatisticsOneDay createState() => _StatisticsOneDay();
 }
 
-GlobalKey _globalKey = GlobalKey();
-
 class _StatisticsOneDay extends State<StatisticsOneDay> {
-
   @override
   Widget build(BuildContext context) {
     double _percentsPoints = 0;
@@ -32,7 +29,7 @@ class _StatisticsOneDay extends State<StatisticsOneDay> {
         ),
         child: SfCircularChart(
           margin: EdgeInsets.zero,
-          centerY: '110',
+          centerY: '104',
           series: [
             DoughnutSeries<ChartData, String>(
               dataSource: getChartData(),
@@ -74,7 +71,7 @@ class _StatisticsOneDay extends State<StatisticsOneDay> {
               radius: '55%',
 
               //groupMode: CircularChartGroupMode.point, //will be useful while I'll have more data
-              //groupTo: 6,
+              //groupTo: 4,
 
               selectionBehavior: SelectionBehavior(
                   enable: true,
