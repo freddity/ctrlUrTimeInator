@@ -93,10 +93,20 @@ class _ManagerPageState extends State<ManagerPage> with TickerProviderStateMixin
             SliverList(
               delegate: SliverChildBuilderDelegate(
                     (context, index) {
-                  return Card(
+                  return Container(
                     margin: EdgeInsets.only(bottom: 10.0, left: 15, right: 15),
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(5.0)),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(5)),
+                      color: Color(0xffffffff),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.12),
+                          spreadRadius: 0,
+                          blurRadius: 7,
+                          //offset: Offset(0, 0), // changes position of shadow
+                        ),
+                      ],
+                    ),
                     child:
                     Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
                       Container(

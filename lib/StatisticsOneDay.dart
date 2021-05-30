@@ -19,7 +19,7 @@ class _StatisticsOneDay extends State<StatisticsOneDay> {
         height: 220,
         margin: EdgeInsets.only(left: 15, right: 15, top: 15),
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.all(Radius.circular(8)),
+          borderRadius: BorderRadius.all(Radius.circular(5)),
           color: Color(0xffffffff),
           boxShadow: [
             BoxShadow(
@@ -71,7 +71,7 @@ class _StatisticsOneDay extends State<StatisticsOneDay> {
               enableSmartLabels: true,
               explode: false,
               animationDuration: 350,
-              radius: '50%',
+              radius: '55%',
 
               //groupMode: CircularChartGroupMode.point, //will be useful while I'll have more data
               //groupTo: 6,

@@ -87,7 +87,7 @@ class _StatisticsPageState extends State<StatisticsPage>
             ),
             SliverToBoxAdapter(
               child: Container(
-                height: 250,
+                height: 230,
                 child: _choiceContent[_choiceCurrent],
               ),
             ),
