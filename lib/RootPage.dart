@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
         primaryContrastingColor: Color(0xfffafafa),
         barBackgroundColor: Color(0xfffafafa),
         textTheme: CupertinoTextThemeData(),
-        scaffoldBackgroundColor: Color(0xfffafafa)
+        scaffoldBackgroundColor: Color(0xffF4F4F4)
       ),
     );
   }

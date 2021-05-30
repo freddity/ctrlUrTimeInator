@@ -22,9 +22,9 @@ class _StatisticsPageState extends State<StatisticsPage>
   int _choiceCurrent = 0;
 
   final _choiceTypes = <int, Widget>{
-    0: Text('1 day'),
-    1: Text('7 days'),
-    2: Text('30 days'),
+    0: Text('Daily'),
+    1: Text('Weekly'),
+    2: Text('Monthly'),
   };
 
   final _choiceContent = <Widget>[
@@ -69,15 +69,21 @@ class _StatisticsPageState extends State<StatisticsPage>
             ),
             SliverPadding(padding: EdgeInsets.only(top: 20)),
             SliverToBoxAdapter(
-              child: CupertinoSegmentedControl<int>(
-                children: _choiceTypes,
-                onValueChanged: (value) {
-                  setState(() {
-                    _choiceCurrent = value;
-                  });
-                },
-                groupValue: _choiceCurrent,
-              ),
+              child: Container(
+                margin: EdgeInsets.only(left: 15, right: 15),
+                child: CupertinoSlidingSegmentedControl(
+                  padding: EdgeInsets.only(top: 1.5, bottom: 1.5),
+                  thumbColor: Color(0xffffffff),
+                  backgroundColor: Color(0xffEBEBEB),
+                  children: _choiceTypes,
+                  onValueChanged: (value) {
+                    setState(() {
+                      _choiceCurrent = value;
+                    });
+                  },
+                  groupValue: _choiceCurrent,
+                ),
+              )
             ),
             SliverToBoxAdapter(
               child: Container(
@@ -85,8 +91,6 @@ class _StatisticsPageState extends State<StatisticsPage>
                 child: _choiceContent[_choiceCurrent],
               ),
             ),
-
-
           ],
         ),
       ),

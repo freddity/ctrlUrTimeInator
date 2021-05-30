@@ -12,56 +12,76 @@ class _StatisticsSevenDay extends State<StatisticsSevenDay> {
     double _percentsPoints = 0;
 
     return Scaffold(
-      body: SfCircularChart(
-        margin: EdgeInsets.zero,
-        centerY: '120',
-        series: <DoughnutSeries>[
-          DoughnutSeries<ChartData, String>(
-            dataSource: getChartData(),
-            xValueMapper: (ChartData data, _) => data.title,
-            yValueMapper: (ChartData data, _) => data.value,
-            pointColorMapper: (ChartData data, _) => data.color,
-            dataLabelMapper: (ChartData data, _) {
-              _percentsPoints += data.value;
+        body: Container(
+          height: 220,
+          margin: EdgeInsets.only(left: 15, right: 15, top: 15),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.all(Radius.circular(8)),
+            color: Color(0xffffffff),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey.withOpacity(0.12),
+                spreadRadius: 0,
+                blurRadius: 7,
+                //offset: Offset(0, 0), // changes position of shadow
+              ),
+            ],
+          ),
+          child: SfCircularChart(
+            margin: EdgeInsets.zero,
+            centerY: '110',
+            series: [
+              DoughnutSeries<ChartData, String>(
+                dataSource: getChartData(),
+                xValueMapper: (ChartData data, _) => data.title,
+                yValueMapper: (ChartData data, _) => data.value,
+                pointColorMapper: (ChartData data, _) => data.color,
+                dataLabelMapper: (ChartData data, _) {
+                  _percentsPoints += data.value;
 
-              String _percentsFirst = '${data.value}% ${data.title}';
-              String _nameFirst = '${data.title} ${data.value}%';
+                  String _percentsFirst = '${data.value}% ${data.title}';
+                  String _nameFirst = '${data.title} ${data.value}%';
 
-              print(_percentsPoints);
-              if (_percentsPoints > 50) {
-                if (_percentsPoints - (data.value / 2) < 50) {
-                  return _percentsFirst;
-                } else {
-                  return _nameFirst;
-                }
-              } else {
-                return _percentsFirst;
-              }
-            },
-            dataLabelSettings: DataLabelSettings(
-              textStyle:
-              TextStyle(color: Color.fromRGBO(44, 44, 46, 1), fontSize: 10),
-              isVisible: true,
-              labelPosition: ChartDataLabelPosition.outside,
-              showCumulativeValues: true,
-              connectorLineSettings: ConnectorLineSettings(
-                  width: 0.5,
-                  color: Color(0x8a7f7f7f),
-                  type: ConnectorType.curve),
-            ),
-            enableTooltip: true,
-            enableSmartLabels: true,
-            explode: false,
-            animationDuration: 350,
-            radius: '65%',
-            selectionBehavior: SelectionBehavior(
-                enable: true,
-                unselectedOpacity: 0.3,
-                unselectedBorderWidth: 0.1,
-                unselectedBorderColor: Colors.black),
-          )
-        ],
-      ),
+                  print(_percentsPoints);
+                  if (_percentsPoints > 50) {
+                    if (_percentsPoints - (data.value / 2) < 50) {
+                      return _percentsFirst;
+                    } else {
+                      return _nameFirst;
+                    }
+                  } else {
+                    return _percentsFirst;
+                  }
+                },
+                dataLabelSettings: DataLabelSettings(
+                  textStyle:
+                  TextStyle(color: Color.fromRGBO(44, 44, 46, 1), fontSize: 10),
+                  isVisible: true,
+                  labelPosition: ChartDataLabelPosition.outside,
+                  showCumulativeValues: true,
+                  connectorLineSettings: ConnectorLineSettings(
+                      width: 0.5,
+                      color: Color(0x8a7f7f7f),
+                      type: ConnectorType.curve),
+                ),
+                enableTooltip: true,
+                enableSmartLabels: true,
+                explode: false,
+                animationDuration: 350,
+                radius: '50%',
+
+                //groupMode: CircularChartGroupMode.point, //will be useful while I'll have more data
+                //groupTo: 6,
+
+                selectionBehavior: SelectionBehavior(
+                    enable: true,
+                    unselectedOpacity: 0.3,
+                    unselectedBorderWidth: 0.1,
+                    unselectedBorderColor: Colors.black),
+              )
+            ],
+          ),
+        )
     );
   }
 }

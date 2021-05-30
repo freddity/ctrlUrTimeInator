@@ -181,7 +181,17 @@ return Scaffold(
 
 
 
-
+SliverToBoxAdapter(
+              child: CupertinoSegmentedControl<int>(
+                children: _choiceTypes,
+                onValueChanged: (value) {
+                  setState(() {
+                    _choiceCurrent = value;
+                  });
+                },
+                groupValue: _choiceCurrent,
+              ),
+            ),
 
 
 
